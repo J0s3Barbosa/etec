@@ -63,7 +63,6 @@ export function applyProvaToNode(node) {
   if (!node?.prova || !node?.questao) return node;
   const pack = lookupProvaQuestion(node.prova, node.questao);
   if (!pack) return node;
-  if (pack.tema) node.tema = pack.tema;
   node.reading = pack.reading || '';
   node.enunciado = pack.enunciado || pack.stem || '';
   node.question = node.enunciado;
