@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { buildSkillActivities } from './skill-activities.js';
 import {
   etecMissionVisualState,
+  etecTreeProgress,
+  isEtecMissionDone,
   materiaProgress,
   skillVisualState
 } from './progress.js';
@@ -115,7 +117,7 @@ function sphereCenterTexture(materia) {
   return t;
 }
 
-function progressBadgeTexture(done, total) {
+function progressBadgeTexture(done, total, unit = 'BNCC') {
   const c = document.createElement('canvas');
   c.width = 256;
   c.height = 72;
@@ -130,10 +132,16 @@ function progressBadgeTexture(done, total) {
   const w = total ? (done / total) * 216 : 0;
   x.fillStyle = done === total && total ? '#81f1df' : '#f0c14b';
   if (w > 0) x.fillRect(20, 32, w, 6);
-  x.fillStyle = '#e8f2ff';
-  x.font = 'bold 20px system-ui';
+  const label = unit === 'feitas' ? `${done} de ${total} feitas` : total ? `${done}/${total} BNCC` : '—';
+  x.fillStyle = done === total && total ? '#81f1df' : '#e8f2ff';
   x.textAlign = 'center';
-  x.fillText(total ? `${done}/${total} BNCC` : '—', 128, 22);
+  let size = 20;
+  x.font = `bold ${size}px system-ui`;
+  while (size > 13 && x.measureText(label).width > 230) {
+    size -= 1;
+    x.font = `bold ${size}px system-ui`;
+  }
+  x.fillText(label, 128, 22);
   const t = new THREE.CanvasTexture(c);
   t.colorSpace = THREE.SRGBColorSpace;
   return t;
@@ -168,7 +176,7 @@ function applyPlanetVisual(sphere, halo, baseColor, visualState) {
   }
 }
 
-function labelTexture(text, emoji, sub = 'TOQUE PARA EXPLORAR') {
+function labelTexture(text, emoji, sub = 'TOQUE PARA EXPLORAR', subColor = '#cfe5ff') {
   const c = document.createElement('canvas');
   c.width = 512;
   c.height = 160;
@@ -181,8 +189,9 @@ function labelTexture(text, emoji, sub = 'TOQUE PARA EXPLORAR') {
   x.shadowBlur = 10;
   const line = `${emoji} ${text}`;
   x.fillText(line.length > 22 ? line.slice(0, 21) + '…' : line, 256, 78);
-  x.font = '26px system-ui';
-  x.fillStyle = '#cfe5ff';
+  x.shadowBlur = 0;
+  x.font = 'bold 34px system-ui';
+  x.fillStyle = subColor;
   x.fillText(sub, 256, 125);
   const t = new THREE.CanvasTexture(c);
   t.colorSpace = THREE.SRGBColorSpace;
@@ -200,8 +209,54 @@ function disposeGroup(group) {
   });
 }
 
+function isEtecBranchNode(node) {
+  if (!node || node.etecMission) return false;
+  if (node.id === 'prep-etec') return true;
+  if (typeof node.id === 'string' && node.id.startsWith('etec-')) return true;
+  return node.cat === 'Missão ETEC';
+}
+
+function missionCaption(node, progress) {
+  if (!progress || !node?.etecMission) return null;
+  return isEtecMissionDone(progress, node)
+    ? { text: 'FEITO', color: '#81f1df' }
+    : { text: 'FALTA', color: '#ffd59a' };
+}
+
+function etecFolderCaption(node, progress) {
+  if (!progress || !isEtecBranchNode(node)) return null;
+  const p = etecTreeProgress(node, progress);
+  if (!p.total) return null;
+  if (p.done === p.total) return { text: 'TUDO FEITO', color: '#81f1df' };
+  if (p.done === 0) return { text: `0 de ${p.total} feitas`, color: '#ffd59a' };
+  return { text: `${p.done} de ${p.total} feitas`, color: '#f0c14b' };
+}
+
+function nodeCaption(node, progress) {
+  return missionCaption(node, progress) || etecFolderCaption(node, progress);
+}
+
+function etecLabelName(node) {
+  const name = node?.name || '';
+  if (!isEtecBranchNode(node)) return name;
+  const parts = name.split(/\s+[—–-]\s+/);
+  return parts.length > 1 ? parts[parts.length - 1] : name;
+}
+
+function paintLabel(sprite, node, sub, color) {
+  const prev = sprite.material.map;
+  sprite.material.map = labelTexture(etecLabelName(node), node.emoji || '🪐', sub, color);
+  sprite.material.needsUpdate = true;
+  prev?.dispose();
+}
+
 function resolveVisualState(node, progress) {
   if (node.etecMission) return etecMissionVisualState(progress, node);
+  if (isEtecBranchNode(node)) {
+    const p = etecTreeProgress(node, progress);
+    if (p.total && p.done >= p.total) return 'done';
+    return 'default';
+  }
   if (node.bnccSkill) return skillVisualState(progress, node);
   if (node.children?.length && node.children.some((c) => c.bnccSkill)) {
     const p = materiaProgress(progress, node);
@@ -211,7 +266,8 @@ function resolveVisualState(node, progress) {
   return 'default';
 }
 
-function createPlanetMesh(node, { radius = 0.72, sub, centerMateria, hubBlue, visualState = 'default', progressBadge }) {
+function createPlanetMesh(node, { radius = 0.72, sub, subColor, centerMateria, hubBlue, visualState = 'default', progressBadge }) {
+  let labelSprite = null;
   const color = hubBlue ? 0x3d7ee8 : (node.color ?? 0x88aaff);
   const g = new THREE.Group();
   g.userData.node = node;
@@ -249,7 +305,7 @@ function createPlanetMesh(node, { radius = 0.72, sub, centerMateria, hubBlue, vi
   } else {
     const spr = new THREE.Sprite(
       new THREE.SpriteMaterial({
-        map: labelTexture(node.name, node.emoji || '🪐', sub),
+        map: labelTexture(etecLabelName(node), node.emoji || '🪐', sub, subColor),
         transparent: true,
         depthTest: false
       })
@@ -257,20 +313,22 @@ function createPlanetMesh(node, { radius = 0.72, sub, centerMateria, hubBlue, vi
     spr.position.y = -(radius + 0.45);
     spr.scale.set(2.4, 0.78, 1);
     g.add(spr);
+    labelSprite = spr;
   }
   if (progressBadge && progressBadge.total > 0) {
+    const etecBadge = progressBadge.unit === 'feitas';
     const badge = new THREE.Sprite(
       new THREE.SpriteMaterial({
-        map: progressBadgeTexture(progressBadge.done, progressBadge.total),
+        map: progressBadgeTexture(progressBadge.done, progressBadge.total, progressBadge.unit),
         transparent: true,
         depthTest: false
       })
     );
-    badge.position.y = radius + 0.55;
-    badge.scale.set(1.5, 0.42, 1);
+    badge.position.y = radius + (etecBadge ? 0.62 : 0.55);
+    badge.scale.set(etecBadge ? 1.95 : 1.5, etecBadge ? 0.55 : 0.42, 1);
     g.add(badge);
   }
-  return { group: g, sphere, node, halo, visualState };
+  return { group: g, sphere, node, halo, visualState, labelSprite };
 }
 
 export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate, progress }) {
@@ -336,7 +394,7 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate, progr
   function planetOpts(node, base = {}) {
     const visualState = progress ? resolveVisualState(node, progress) : 'default';
     let progressBadge = null;
-    if (progress && (node.lazyKey || node.children?.some((c) => c.bnccSkill || c.etecMission))) {
+    if (progress && !isEtecBranchNode(node) && (node.lazyKey || node.children?.some((c) => c.bnccSkill || c.etecMission))) {
       if (node.lazyKey && !node._materialized) {
         const recs = node.skillCount ?? 0;
         if (recs > 0) progressBadge = { done: 0, total: recs };
@@ -393,12 +451,14 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate, progr
       const node = nodes[i];
       const hasKids = node.children?.length || node.lazyKey;
       const hasMap = node.mindMap?.length || node.bnccSkill || node.etecMission;
-      let sub = 'TOQUE PARA APRENDER';
-      if (hasKids) sub = 'ENTRAR NA CAMADA';
-      else if (node.bnccSkill || node.etecMission) sub = 'ABRIR RECURSOS';
-      else if (hasMap) sub = 'ABRIR MAPA DE IDEIAS';
+      const caption = nodeCaption(node, progress);
+      let sub = caption ? caption.text : 'TOQUE PARA APRENDER';
+      if (!caption && hasKids) sub = 'ENTRAR NA CAMADA';
+      else if (!caption && (node.bnccSkill || node.etecMission)) sub = 'ABRIR RECURSOS';
+      else if (!caption && hasMap) sub = 'ABRIR MAPA DE IDEIAS';
       addPlanetAt(node, positions[i], {
         sub,
+        subColor: caption?.color,
         radius: skillLayer ? skillRadius : 0.72
       });
       if (skillLayer && i > 0 && i % 10 === 0) {
@@ -454,10 +514,13 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate, progr
 
   function refreshProgressVisuals() {
     planetMeshes.forEach((p) => {
+      if (p.isHub) return;
       const visualState = progress ? resolveVisualState(p.node, progress) : 'default';
       const color = p.node.color ?? 0x88aaff;
       applyPlanetVisual(p.sphere, p.halo, color, visualState);
       p.visualState = visualState;
+      const caption = nodeCaption(p.node, progress);
+      if (caption && p.labelSprite) paintLabel(p.labelSprite, p.node, caption.text, caption.color);
     });
   }
 

@@ -2,7 +2,7 @@ import { buildBnccTreeFromCsv, collectDiscoverableIds, breadcrumbLabel } from '.
 import { loadProgress, saveProgress, registerEtecMissions } from './storage.js';
 import { createPanel } from './panel.js';
 import { createQuizModal } from './quiz-modal.js';
-import { markNodeComplete, normalizeCode } from './progress.js';
+import { markNodeComplete, etecScopeProgress, etecTreeProgress, normalizeCode } from './progress.js';
 import { createUniverse } from './universe.js';
 import { parseMissaoEtecCsv } from './missao-etec.js';
 import { setEtecProvaBank, applyProvaToNode } from './etec-prova-bank.js';
@@ -45,7 +45,29 @@ async function boot() {
     const validIds = collectDiscoverableIds(bnccRoot);
     const progress = loadProgress(validIds);
 
+    let lastNav = null;
+
+    function etecHudText(stack) {
+      const top = stack[stack.length - 1];
+      if (!top) return '';
+      const inPath = stack.some(
+        (n) => n.id === 'prep-etec' || n.etecMission || (typeof n.id === 'string' && n.id.startsWith('etec-'))
+      );
+      if (!inPath) return '';
+      if (top.etecMission) {
+        const scope = etecScopeProgress(progress, top);
+        const q = scope.question ? 'Esta questão: feita' : 'Esta questão: falta';
+        return `${q} · Matéria ${scope.section.done} de ${scope.section.total}`;
+      }
+      const p = etecTreeProgress(top, progress);
+      if (!p.total) return '';
+      if (p.done === p.total) return `Aqui: tudo feito · ${p.done} de ${p.total}`;
+      return `Aqui: ${p.done} de ${p.total} feitas`;
+    }
+
     const onProgressChange = () => {
+      panel?.refreshActive();
+      if (lastNav) updateCrumb(lastNav);
       clearTimeout(progressDebounce);
       progressDebounce = setTimeout(() => universe?.rebuildCurrentLayer(), 100);
     };
@@ -58,7 +80,6 @@ async function boot() {
         if (node.parentMissionId) progress.ids.add(node.parentMissionId);
         saveProgress(progress.ids, progress.codes);
         onProgressChange();
-        panel?.updateScore();
       }
     });
 
@@ -81,6 +102,16 @@ async function boot() {
     const backBtn = document.getElementById('navBack');
 
     function updateCrumb({ stack, rootLayersOpen, viewMode }) {
+      lastNav = { stack, rootLayersOpen, viewMode };
+      const legend = document.getElementById('etecLegend');
+      const hud = etecHudText(stack);
+      if (hud) {
+        document.getElementById('score').textContent = hud;
+        legend?.classList.remove('hidden');
+      } else {
+        panel?.updateScore();
+        legend?.classList.add('hidden');
+      }
       if (!rootLayersOpen && stack.length === 1 && stack[0].id === bnccRoot.id) {
         crumb.textContent = 'Toque no núcleo · BNCC';
         backBtn.classList.add('hidden');

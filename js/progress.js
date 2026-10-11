@@ -34,6 +34,54 @@ export function etecCodeProgress(progress, code) {
   return { done, total: missions.length, complete: done === missions.length };
 }
 
+export function isEtecMissionDone(progress, node) {
+  return Boolean(node?.id && progress.ids.has(node.id));
+}
+
+export function resolveEtecMission(node) {
+  if (!node) return null;
+  if (node.id && etecMissionsById.has(node.id)) return etecMissionsById.get(node.id);
+  if (node.parentMissionId && etecMissionsById.has(node.parentMissionId)) {
+    return etecMissionsById.get(node.parentMissionId);
+  }
+  return node.etecMission ? node : null;
+}
+
+function countMissionIds(list, progress) {
+  const done = list.filter((m) => progress.ids.has(m.id)).length;
+  return { done, total: list.length };
+}
+
+export function etecScopeProgress(progress, mission) {
+  const all = [...etecMissionsById.values()];
+  const prova = mission?.prova || '';
+  const materia = mission?.materia || '';
+  const sameProva = prova ? all.filter((m) => m.prova === prova) : all;
+  const sameSection = materia ? sameProva.filter((m) => m.materia === materia) : sameProva;
+  return {
+    question: isEtecMissionDone(progress, mission),
+    section: countMissionIds(sameSection, progress),
+    prova: countMissionIds(sameProva, progress),
+    all: countMissionIds(all, progress)
+  };
+}
+
+export function etecTreeProgress(node, progress) {
+  let done = 0;
+  let total = 0;
+  const walk = (n) => {
+    if (!n) return;
+    if (n.etecMission) {
+      total += 1;
+      if (isEtecMissionDone(progress, n)) done += 1;
+      return;
+    }
+    (n.children || []).forEach(walk);
+  };
+  walk(node);
+  return { done, total, ratio: total ? done / total : 0 };
+}
+
 export function loadProgress(validIds) {
   const ids = new Set();
   const codes = new Set();
@@ -92,8 +140,7 @@ export function skillVisualState(progress, node) {
 }
 
 export function etecMissionVisualState(progress, node) {
-  if (progress.ids.has(node.id)) return 'done';
-  if (node.code && progress.codes.has(normalizeCode(node.code))) return 'linked';
+  if (isEtecMissionDone(progress, node)) return 'done';
   return 'pending';
 }
 

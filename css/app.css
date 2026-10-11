@@ -5,12 +5,17 @@ h1{font-size:clamp(1.15rem,3vw,1.8rem);margin:0 0 4px;text-shadow:0 2px 12px #00
 #help{position:fixed;bottom:14px;left:14px;z-index:3;background:#101c35dc;border:1px solid #516c9b;border-radius:14px;padding:10px 13px;color:#dbe7ff;font-size:.82rem;max-width:260px;backdrop-filter:blur(8px)}
 #panel{position:fixed;right:14px;top:86px;width:min(340px,calc(100vw - 28px));max-height:calc(100vh - 110px);overflow:auto;z-index:5;background:#0c1730ee;border:1px solid #5774a5;border-radius:18px;padding:18px;box-shadow:0 16px 60px #0009;backdrop-filter:blur(12px)}
 #panel.hidden{display:none!important}#close{float:right;border:0;background:#263a62;color:white;border-radius:50%;width:34px;height:34px;font-size:1.15rem;cursor:pointer}
-.eyebrow{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#81f1df;font-weight:800}h2{margin:6px 0 8px;font-size:1.4rem}p{line-height:1.5;color:#d7e3ff}.chip{display:inline-block;background:#23395f;border-radius:8px;padding:5px 8px;margin:3px;font-size:.8rem}
+.eyebrow{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#81f1df;font-weight:800}h2{margin:6px 0 8px;font-size:1.4rem}p{line-height:1.5;color:#d7e3ff}#summary a,#facts a{color:#9fd4ff;font-weight:700;word-break:break-all}#summary a{display:inline-block;max-width:100%}#summary a:hover,#facts a:hover{color:#81f1df}.chip{display:inline-block;background:#23395f;border-radius:8px;padding:5px 8px;margin:3px;font-size:.8rem}
 .chip-done{background:#1a4a42;border-color:#81f1df;color:#b8fff0}
 .bncc-progress{margin:10px 0 14px}
 .bncc-progress .bar-label{font-size:.78rem;color:#a9bddf;margin-bottom:6px}
 .bncc-progress .bar-track{height:8px;background:#23395f;border-radius:99px;overflow:hidden}
 .bncc-progress .bar-fill{height:100%;width:0;background:linear-gradient(90deg,#f0c14b,#81f1df);transition:width .35s ease}
+.bncc-progress.is-etec .bar-label{font-size:.95rem;color:#e7f0ff;font-weight:700;line-height:1.45}
+.bncc-progress.is-etec .bar-track{height:14px}
+.etec-now{display:block;font-size:1.2rem;margin-bottom:4px}
+.etec-now.is-done{color:#81f1df}
+.etec-now.is-todo{color:#ffd59a}
 .task{padding:12px;background:#17294a;border:1px solid #344d77;border-radius:12px;margin:12px 0}.task b{display:block;margin-bottom:5px}
 button.primary{background:#81f0df;color:#092137;border:0;border-radius:11px;padding:11px 13px;font-weight:800;cursor:pointer;width:100%;font-size:.95rem}
 #quizResult{min-height:20px;color:#8ef2d8;font-weight:700}
@@ -27,6 +32,9 @@ button.primary{background:#81f0df;color:#092137;border:0;border-radius:11px;padd
 .quiz-modal.hidden{display:none!important}
 .quiz-modal-box{position:relative;width:min(760px,96vw);max-height:min(88vh,900px);overflow:auto;background:#0c1730f2;border:1px solid #5a7fb8;border-radius:20px;padding:22px 20px 24px;box-shadow:0 24px 80px #000a}
 .quiz-modal-close{position:absolute;top:12px;right:12px;border:0;background:#263a62;color:#fff;border-radius:50%;width:38px;height:38px;font-size:1.2rem;cursor:pointer}
+.quiz-progress{font-size:1.2rem;font-weight:800;line-height:1.4;margin:0 40px 10px 0}
+.quiz-progress.is-done{color:#81f1df}
+.quiz-progress.is-todo{color:#ffd59a}
 .quiz-meta{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#81f1df;font-weight:800;margin:0 36px 8px 0}
 .quiz-theme{font-size:1rem;color:#c8d8ff;margin:0 0 14px;line-height:1.45}
 .quiz-reading{font-size:.92rem;line-height:1.55;color:#d0dff9;background:#152845;border:1px solid #3a5278;border-radius:12px;padding:12px 14px;margin-bottom:14px;white-space:pre-wrap}

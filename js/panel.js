@@ -1,7 +1,10 @@
 import {
   markNodeComplete,
   isCodeComplete,
+  isEtecMissionDone,
   etecCodeProgress,
+  etecScopeProgress,
+  resolveEtecMission,
   normalizeCode
 } from './progress.js';
 import { saveProgress } from './storage.js';
@@ -18,7 +21,28 @@ export function createPanel({ progress, onPersist, onProgressChange, openQuiz, o
     onProgressChange?.();
   }
 
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function linkify(value) {
+    return escapeHtml(value).replace(
+      /https?:\/\/[^\s<]+/g,
+      (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+    );
+  }
+
   function learnedLabel(node) {
+    const mission = resolveEtecMission(node);
+    if (mission && node.id === mission.id) {
+      return isEtecMissionDone(progress, mission)
+        ? '🌟 Feito! Toque para desmarcar'
+        : '✨ Ainda não fiz';
+    }
     const done = node.id && progress.ids.has(node.id);
     const codeDone = node.code && isCodeComplete(progress, node.code);
     if (done || codeDone) return '🌟 Concluído! Clique para desfazer';
@@ -42,23 +66,55 @@ export function createPanel({ progress, onPersist, onProgressChange, openQuiz, o
       markNodeComplete(progress, node);
     }
     persistAll();
-    updateScore();
     if (active?.id === node.id) learnedBtn.textContent = learnedLabel(node);
+  }
+
+  function paintQuizStatus(node) {
+    const el = document.getElementById('quizProgress');
+    if (!el) return;
+    const mission = node ? resolveEtecMission(node) : null;
+    if (!mission) {
+      el.textContent = '';
+      el.className = 'quiz-progress hidden';
+      return;
+    }
+    const scope = etecScopeProgress(progress, mission);
+    el.className = `quiz-progress ${scope.question ? 'is-done' : 'is-todo'}`;
+    const now = scope.question ? 'Esta questão: FEITA' : 'Esta questão: FALTA';
+    const sec = scope.section.total ? `Matéria: ${scope.section.done} de ${scope.section.total}` : '';
+    el.textContent = [now, sec].filter(Boolean).join(' · ');
+  }
+
+  function showEtecProgress(node) {
+    const mission = resolveEtecMission(node);
+    if (!mission) return false;
+    const el = document.getElementById('bnccProgress');
+    if (!el) return false;
+    const scope = etecScopeProgress(progress, mission);
+    const now = scope.question ? 'Esta questão: FEITA' : 'Esta questão: FALTA';
+    const lines = [
+      `<span class="etec-now ${scope.question ? 'is-done' : 'is-todo'}">${now}</span>`,
+      scope.section.total ? `Nesta matéria: ${scope.section.done} de ${scope.section.total} feitas` : '',
+      scope.prova.total ? `Nesta prova: ${scope.prova.done} de ${scope.prova.total} feitas` : ''
+    ].filter(Boolean);
+    el.classList.add('is-etec');
+    el.classList.remove('hidden');
+    el.querySelector('.bar-label').innerHTML = lines.join('<br>');
+    const ratio = scope.section.total
+      ? scope.section.done / scope.section.total
+      : scope.question
+        ? 1
+        : 0;
+    el.querySelector('.bar-fill').style.width = `${Math.round(ratio * 100)}%`;
+    return true;
   }
 
   function showBnccProgress(node) {
     const el = document.getElementById('bnccProgress');
     if (!el) return;
+    el.classList.remove('is-etec');
 
-    if (node.etecMission && node.code) {
-      const link = etecCodeProgress(progress, node.code);
-      el.classList.remove('hidden');
-      el.querySelector('.bar-fill').style.width = progress.ids.has(node.id) ? '100%' : '0%';
-      el.querySelector('.bar-label').textContent = link
-        ? `Missão ETEC · ${link.done}/${link.total} questões com este código na planilha`
-        : 'Missão ETEC · questão da planilha';
-      return;
-    }
+    if (showEtecProgress(node)) return;
 
     if (node.bnccSkill && node.code) {
       const link = etecCodeProgress(progress, node.code);
@@ -81,6 +137,8 @@ export function createPanel({ progress, onPersist, onProgressChange, openQuiz, o
 
   function openTopic(t) {
     if (t.mediaKind === 'quiz' && openQuiz) {
+      active = t;
+      paintQuizStatus(t);
       openQuiz(t);
       return;
     }
@@ -99,15 +157,21 @@ export function createPanel({ progress, onPersist, onProgressChange, openQuiz, o
     document.getElementById('category').textContent = t.cat || 'BNCC';
     const titleExtra = t.questao ? ` · Q${t.questao}` : t.skillCode ? ` · ${t.skillCode}` : '';
     document.getElementById('title').textContent = `${t.emoji || ''} ${t.name}${titleExtra}`.trim();
+    const videoUrl = t.mediaKind === 'video' ? (t.summary || '').trim() : '';
     let summary = t.tema || t.summary || '';
-    if (t.mediaKind === 'video') summary = `${summary}\n\n${t.summary}`;
-    if (t.mediaKind === 'imagem') summary = `${summary}\n\n${t.summary}`;
+    if (videoUrl) summary = videoUrl;
+    else if (t.mediaKind === 'imagem') summary = `${summary}\n\n${t.summary}`;
     if (t.mediaKind === 'dicas' && t.anotacao) summary = t.anotacao;
     if (t.explicacao && !t.mediaKind) summary = `${summary}\n\n${t.explicacao}`;
-    document.getElementById('summary').textContent = summary;
-    const facts = t.facts || [];
+    const summaryEl = document.getElementById('summary');
+    if (/https?:\/\//.test(summary)) {
+      summaryEl.innerHTML = linkify(summary);
+    } else {
+      summaryEl.textContent = summary;
+    }
+    const facts = (t.facts || []).filter((f) => (f || '').trim() !== videoUrl);
     document.getElementById('facts').innerHTML = facts.length
-      ? `<ul>${facts.map((f) => `<li>${f}</li>`).join('')}</ul>`
+      ? `<ul>${facts.map((f) => `<li>${linkify(f)}</li>`).join('')}</ul>`
       : '<p style="margin:0;color:#a9bddf">Sem tópicos listados nesta camada.</p>';
     const hasQuiz = t.question && t.answers?.length;
     quizTask.classList.toggle('hidden', !hasQuiz);
@@ -130,7 +194,6 @@ export function createPanel({ progress, onPersist, onProgressChange, openQuiz, o
             markNodeComplete(progress, t);
             if (t.skillCode) progress.codes.add(normalizeCode(t.skillCode));
             persistAll();
-            updateScore();
             learnedBtn.textContent = learnedLabel(t);
             showBnccProgress(t);
           }
@@ -142,7 +205,7 @@ export function createPanel({ progress, onPersist, onProgressChange, openQuiz, o
     document.getElementById('codes').innerHTML = codes.length
       ? codes
           .map((c) => {
-            const done = isCodeComplete(progress, c);
+            const done = t.etecMission ? isEtecMissionDone(progress, t) : isCodeComplete(progress, c);
             return `<span class="chip${done ? ' chip-done' : ''}">${c}${done ? ' ✓' : ''}</span>`;
           })
           .join('')
@@ -160,7 +223,15 @@ export function createPanel({ progress, onPersist, onProgressChange, openQuiz, o
     showBnccProgress(active);
   };
 
+  function refreshActive() {
+    updateScore();
+    paintQuizStatus(active);
+    if (!active) return;
+    learnedBtn.textContent = learnedLabel(active);
+    showBnccProgress(active);
+  }
+
   updateScore();
 
-  return { openTopic, updateScore };
+  return { openTopic, updateScore, refreshActive };
 }

@@ -16,7 +16,7 @@
 <body>
 <div id="space"></div>
 <div id="top"><h1>🧬 Universo das Células</h1><div id="subtitle">Uma aventura científica para a Missão ETEC</div></div>
-<div id="hud"><span class="pill" id="crumb">Toque no núcleo · BNCC</span><span class="pill" id="score">⭐ Descobertas: 0</span><button type="button" class="pill pill-btn hidden" id="navBack">⬅ Voltar camada</button></div>
+<div id="hud"><span class="pill" id="crumb">Toque no núcleo · BNCC</span><span class="pill" id="score">⭐ Descobertas: 0</span><span class="pill hidden" id="etecLegend">Cinza = falta · Brilho = feito</span><button type="button" class="pill pill-btn hidden" id="navBack">⬅ Voltar camada</button></div>
 <div id="help">🖱️ Arraste para girar o universo<br>🔍 Role para aproximar ou afastar<br>🧬 Núcleo: camadas BNCC · voltar<br>📘 Ano → matéria → habilidade → vídeo · imagem · quiz · dicas</div>
 <div id="status">Experiência 3D requer conexão com a internet.</div>
 <aside id="panel" class="hidden">
@@ -34,6 +34,7 @@
 <div id="quizModal" class="quiz-modal hidden" aria-hidden="true" role="dialog" aria-labelledby="quizMeta">
 <div class="quiz-modal-box">
 <button type="button" id="quizModalClose" class="quiz-modal-close" aria-label="Fechar">×</button>
+<p class="quiz-progress hidden" id="quizProgress"></p>
 <p class="quiz-meta" id="quizMeta">Questão</p>
 <p class="quiz-theme" id="quizTheme"></p>
 <div class="quiz-reading hidden" id="quizReading"></div>

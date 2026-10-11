@@ -94,15 +94,22 @@ export function createQuizModal({ onAnswered }) {
 
     const gab = node.gabarito || LETTERS[correct] || '?';
     const rightText = (node.quizOptions?.[correct]?.text || '').trim();
+    const etec = node.etecMission || String(node.parentMissionId || '').startsWith('etec-');
     if (ok) {
       resultEl.className = 'quiz-result ok';
-      resultEl.textContent = `Correto! Gabarito oficial: alternativa ${gab}.`;
+      resultEl.textContent = etec
+        ? `Correto! Esta questão ficou feita. Gabarito: ${gab}.`
+        : `Correto! Gabarito oficial: alternativa ${gab}.`;
       onAnswered?.(node, true);
     } else {
       resultEl.className = 'quiz-result err';
-      resultEl.innerHTML =
-        `Gabarito oficial: <strong>alternativa ${gab}</strong>` +
-        (rightText ? ` — ${escapeHtml(rightText)}` : '.');
+      if (etec) {
+        resultEl.textContent = `Ainda não. Esta questão continua em falta. Gabarito: ${gab}${rightText ? ` — ${rightText}` : ''}.`;
+      } else {
+        resultEl.innerHTML =
+          `Gabarito oficial: <strong>alternativa ${gab}</strong>` +
+          (rightText ? ` — ${escapeHtml(rightText)}` : '.');
+      }
       onAnswered?.(node, false);
     }
   }
