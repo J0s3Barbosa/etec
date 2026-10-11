@@ -1,4 +1,11 @@
 import * as THREE from 'three';
+import { buildSkillActivities } from './skill-activities.js';
+import {
+  etecMissionVisualState,
+  materiaProgress,
+  skillVisualState
+} from './progress.js';
+import { materializeNode } from './bncc-tree.js';
 
 const PLANET_LAYOUT = [
   [0, 4.2, 0],
@@ -11,15 +18,154 @@ const PLANET_LAYOUT = [
 
 const DRAG_CLICK_THRESHOLD = 8;
 const CORE_INDEX = 0;
+const ZOOM_MIN = 0.55;
+const ZOOM_MAX = 2;
+const ZOOM_LAYER = 1;
+const ZOOM_MINDMAP = 0.78;
+const CAMERA_BASE_Z = 14;
 
-function orbitPositions(count, radius = 4.6) {
-  if (count <= PLANET_LAYOUT.length && radius > 4) return PLANET_LAYOUT.slice(0, count);
+function ringPositions(count, radius, yFactor = 0.5, zFactor = 0.14) {
   const out = [];
   for (let i = 0; i < count; i++) {
     const a = (i / count) * Math.PI * 2 - Math.PI / 2;
-    out.push([Math.cos(a) * radius, Math.sin(a) * (radius * 0.52), Math.sin(a) * (radius * 0.13)]);
+    out.push([Math.cos(a) * radius, Math.sin(a) * radius * yFactor, Math.sin(a) * radius * zFactor]);
   }
   return out;
+}
+
+function skillOrbitPositions(count) {
+  if (count <= 14) {
+    const r = Math.max(8.5, 6.5 + count * 0.4);
+    return ringPositions(count, r, 0.34, 0.2);
+  }
+  const out = [];
+  const rings = count > 42 ? 3 : 2;
+  let idx = 0;
+  const base = Math.min(22, 9 + count * 0.48);
+  for (let ring = 0; ring < rings; ring++) {
+    const remaining = count - idx;
+    const ringsLeft = rings - ring;
+    const inRing = Math.ceil(remaining / ringsLeft);
+    const r = base * (0.52 + (ring / (rings - 1 || 1)) * 0.48);
+    for (let j = 0; j < inRing && idx < count; j++, idx++) {
+      const a = (j / inRing) * Math.PI * 2 - Math.PI / 2 + ring * 0.35;
+      out.push([Math.cos(a) * r, Math.sin(a) * r * 0.3, Math.sin(a) * r * 0.18]);
+    }
+  }
+  return out;
+}
+
+function orbitPositions(count, { skillLayer = false } = {}) {
+  if (!skillLayer && count <= PLANET_LAYOUT.length) return PLANET_LAYOUT.slice(0, count);
+  if (skillLayer) return skillOrbitPositions(count);
+  const radius = Math.min(11, 4.9 + count * 0.14);
+  return ringPositions(count, radius);
+}
+
+function mindMapPositions(count) {
+  const radius = Math.min(7.4, 5.1 + count * 0.52);
+  const out = [];
+  for (let i = 0; i < count; i++) {
+    const a = (i / count) * Math.PI * 2 - Math.PI / 2;
+    const wobble = 0.85 + (i % 3) * 0.08;
+    out.push([
+      Math.cos(a) * radius * wobble,
+      Math.sin(a) * radius * 0.38,
+      Math.sin(a) * radius * 0.28
+    ]);
+  }
+  return out;
+}
+
+function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(/\s+/);
+  const lines = [];
+  let line = '';
+  words.forEach((word) => {
+    const test = line ? `${line} ${word}` : word;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
+    } else line = test;
+  });
+  if (line) lines.push(line);
+  const startY = y - ((lines.length - 1) * lineHeight) / 2;
+  lines.forEach((ln, i) => ctx.fillText(ln, x, startY + i * lineHeight));
+}
+
+function sphereCenterTexture(materia) {
+  const c = document.createElement('canvas');
+  c.width = 512;
+  c.height = 512;
+  const x = c.getContext('2d');
+  x.clearRect(0, 0, 512, 512);
+  x.fillStyle = 'rgba(5, 20, 55, 0.55)';
+  x.beginPath();
+  x.arc(256, 256, 200, 0, Math.PI * 2);
+  x.fill();
+  x.font = 'bold 36px system-ui';
+  x.textAlign = 'center';
+  x.textBaseline = 'middle';
+  x.fillStyle = '#ffffff';
+  x.shadowColor = '#0a1a3d';
+  x.shadowBlur = 14;
+  wrapCanvasText(x, materia, 256, 256, 420, 44);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
+function progressBadgeTexture(done, total) {
+  const c = document.createElement('canvas');
+  c.width = 256;
+  c.height = 72;
+  const x = c.getContext('2d');
+  x.clearRect(0, 0, 256, 72);
+  x.fillStyle = 'rgba(8, 16, 36, 0.9)';
+  x.beginPath();
+  x.roundRect(16, 28, 224, 14, 7);
+  x.fill();
+  x.fillStyle = '#2a4068';
+  x.fillRect(20, 32, 216, 6);
+  const w = total ? (done / total) * 216 : 0;
+  x.fillStyle = done === total && total ? '#81f1df' : '#f0c14b';
+  if (w > 0) x.fillRect(20, 32, w, 6);
+  x.fillStyle = '#e8f2ff';
+  x.font = 'bold 20px system-ui';
+  x.textAlign = 'center';
+  x.fillText(total ? `${done}/${total} BNCC` : '—', 128, 22);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
+function applyPlanetVisual(sphere, halo, baseColor, visualState) {
+  const mat = sphere.material;
+  const c = baseColor ?? 0x88aaff;
+  if (visualState === 'pending') {
+    mat.color.setHex(0x4a5568);
+    mat.emissive.setHex(0x1a2230);
+    mat.emissiveIntensity = 0.06;
+    mat.metalness = 0.05;
+    halo.material.color.setHex(0x5a6478);
+    halo.material.opacity = 0.35;
+    return;
+  }
+  const tint = visualState === 'partial' ? 0x8aa8c8 : c;
+  mat.color.setHex(tint);
+  mat.emissive.setHex(c);
+  mat.emissiveIntensity = visualState === 'done' ? 0.38 : visualState === 'linked' ? 0.32 : 0.2;
+  mat.metalness = 0.12;
+  if (visualState === 'linked') {
+    halo.material.color.setHex(0xffd76a);
+    halo.material.opacity = 1;
+  } else if (visualState === 'done') {
+    halo.material.color.setHex(0x81f1df);
+    halo.material.opacity = 0.95;
+  } else {
+    halo.material.color.setHex(c);
+    halo.material.opacity = visualState === 'partial' ? 0.65 : 0.8;
+  }
 }
 
 function labelTexture(text, emoji, sub = 'TOQUE PARA EXPLORAR') {
@@ -54,8 +200,19 @@ function disposeGroup(group) {
   });
 }
 
-function createPlanetMesh(node, { radius = 0.72, sub }) {
-  const color = node.color ?? 0x88aaff;
+function resolveVisualState(node, progress) {
+  if (node.etecMission) return etecMissionVisualState(progress, node);
+  if (node.bnccSkill) return skillVisualState(progress, node);
+  if (node.children?.length && node.children.some((c) => c.bnccSkill)) {
+    const p = materiaProgress(progress, node);
+    if (p.total && p.done >= p.total) return 'done';
+    if (p.done > 0) return 'partial';
+  }
+  return 'default';
+}
+
+function createPlanetMesh(node, { radius = 0.72, sub, centerMateria, hubBlue, visualState = 'default', progressBadge }) {
+  const color = hubBlue ? 0x3d7ee8 : (node.color ?? 0x88aaff);
   const g = new THREE.Group();
   g.userData.node = node;
   const sphere = new THREE.Mesh(
@@ -63,7 +220,7 @@ function createPlanetMesh(node, { radius = 0.72, sub }) {
     new THREE.MeshStandardMaterial({
       color,
       emissive: color,
-      emissiveIntensity: 0.18,
+      emissiveIntensity: hubBlue ? 0.35 : 0.18,
       roughness: 0.28,
       metalness: 0.12
     })
@@ -75,20 +232,48 @@ function createPlanetMesh(node, { radius = 0.72, sub }) {
   );
   halo.rotation.x = 1.0;
   g.add(halo);
-  const spr = new THREE.Sprite(
-    new THREE.SpriteMaterial({
-      map: labelTexture(node.name, node.emoji || '🪐', sub),
-      transparent: true,
-      depthTest: false
-    })
-  );
-  spr.position.y = -(radius + 0.45);
-  spr.scale.set(2.4, 0.78, 1);
-  g.add(spr);
-  return { group: g, sphere, node, halo };
+  if (!hubBlue) applyPlanetVisual(sphere, halo, color, visualState);
+  if (centerMateria) {
+    const face = new THREE.Sprite(
+      new THREE.SpriteMaterial({
+        map: sphereCenterTexture(centerMateria),
+        transparent: true,
+        depthTest: false,
+        depthWrite: false
+      })
+    );
+    face.position.set(0, 0, radius + 0.55);
+    face.scale.set(radius * 3.2, radius * 3.2, 1);
+    face.renderOrder = 999;
+    g.add(face);
+  } else {
+    const spr = new THREE.Sprite(
+      new THREE.SpriteMaterial({
+        map: labelTexture(node.name, node.emoji || '🪐', sub),
+        transparent: true,
+        depthTest: false
+      })
+    );
+    spr.position.y = -(radius + 0.45);
+    spr.scale.set(2.4, 0.78, 1);
+    g.add(spr);
+  }
+  if (progressBadge && progressBadge.total > 0) {
+    const badge = new THREE.Sprite(
+      new THREE.SpriteMaterial({
+        map: progressBadgeTexture(progressBadge.done, progressBadge.total),
+        transparent: true,
+        depthTest: false
+      })
+    );
+    badge.position.y = radius + 0.55;
+    badge.scale.set(1.5, 0.42, 1);
+    g.add(badge);
+  }
+  return { group: g, sphere, node, halo, visualState };
 }
 
-export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate }) {
+export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate, progress }) {
   let scene;
   let camera;
   let renderer;
@@ -106,8 +291,19 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate }) {
   let dragLast = { x: 0, y: 0 };
   let dragStart = { x: 0, y: 0 };
   let targetRot = { x: 0, y: 0 };
-  let zoom = 1;
+  let zoom = ZOOM_LAYER;
+  let targetZoom = ZOOM_LAYER;
+  const mindMapLinkRefs = [];
   const clock = new THREE.Clock();
+
+  function applyViewZoom(mode) {
+    targetZoom = mode === 'mindmap' ? ZOOM_MINDMAP : ZOOM_LAYER;
+  }
+
+  function applyCameraDistance() {
+    if (!camera) return;
+    camera.position.z = CAMERA_BASE_Z / zoom;
+  }
 
   function currentNode() {
     return navStack[navStack.length - 1];
@@ -118,6 +314,7 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate }) {
   }
 
   function clearLinks() {
+    mindMapLinkRefs.length = 0;
     if (!linkGroup) return;
     while (linkGroup.children.length) {
       const child = linkGroup.children[0];
@@ -136,64 +333,116 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate }) {
     }
   }
 
+  function planetOpts(node, base = {}) {
+    const visualState = progress ? resolveVisualState(node, progress) : 'default';
+    let progressBadge = null;
+    if (progress && (node.lazyKey || node.children?.some((c) => c.bnccSkill || c.etecMission))) {
+      if (node.lazyKey && !node._materialized) {
+        const recs = node.skillCount ?? 0;
+        if (recs > 0) progressBadge = { done: 0, total: recs };
+      } else {
+        const p = materiaProgress(progress, node);
+        if (p.total > 0) progressBadge = p;
+      }
+    }
+    return { ...base, visualState, progressBadge };
+  }
+
   function addPlanetAt(node, position, opts) {
-    const p = createPlanetMesh(node, opts);
+    const p = createPlanetMesh(node, planetOpts(node, opts));
     p.group.position.set(...position);
+    p.baseX = position[0];
     p.baseY = position[1];
+    p.baseZ = position[2];
+    p.phase = Math.random() * Math.PI * 2;
     orbitGroup.add(p.group);
     planetMeshes.push(p);
     return p;
   }
 
-  function linkLine(a, b, color = 0x5a8fd4, opacity = 0.55) {
-    const geo = new THREE.BufferGeometry().setFromPoints([a, b]);
+  function linkLineDynamic(getA, getB, color = 0x5a8fd4, opacity = 0.55) {
+    const geo = new THREE.BufferGeometry().setFromPoints([getA(), getB()]);
     const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity });
     const line = new THREE.Line(geo, mat);
     linkGroup.add(line);
+    mindMapLinkRefs.push({ line, getA, getB });
   }
 
-  function buildPlanets(nodes) {
+  function updateDynamicLinks() {
+    mindMapLinkRefs.forEach(({ line, getA, getB }) => {
+      line.geometry.setFromPoints([getA(), getB()]);
+      line.geometry.attributes.position.needsUpdate = true;
+    });
+  }
+
+  async function buildPlanets(nodes) {
     clearPlanets();
     viewMode = 'layer';
+    applyViewZoom('layer');
     if (!nodes.length) {
       notifyNav();
       return;
     }
-    const positions = orbitPositions(nodes.length);
-    nodes.forEach((node, i) => {
-      const hasKids = node.children?.length;
-      const hasMap = node.mindMap?.length;
+    const skillLayer = nodes.length > 0 && nodes.every((n) => n.bnccSkill || n.etecMission);
+    const positions = orbitPositions(nodes.length, { skillLayer });
+    if (skillLayer) {
+      targetZoom = Math.max(0.45, Math.min(ZOOM_LAYER, 1.05 - nodes.length * 0.007));
+    }
+    const skillRadius = nodes.length > 28 ? 0.46 : nodes.length > 16 ? 0.52 : nodes.length > 10 ? 0.58 : 0.64;
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+      const hasKids = node.children?.length || node.lazyKey;
+      const hasMap = node.mindMap?.length || node.bnccSkill || node.etecMission;
       let sub = 'TOQUE PARA APRENDER';
       if (hasKids) sub = 'ENTRAR NA CAMADA';
+      else if (node.bnccSkill || node.etecMission) sub = 'ABRIR RECURSOS';
       else if (hasMap) sub = 'ABRIR MAPA DE IDEIAS';
-      addPlanetAt(node, positions[i], { sub });
-    });
+      addPlanetAt(node, positions[i], {
+        sub,
+        radius: skillLayer ? skillRadius : 0.72
+      });
+      if (skillLayer && i > 0 && i % 10 === 0) {
+        await new Promise((r) => requestAnimationFrame(r));
+      }
+    }
     notifyNav();
   }
 
   function buildMindMap(hub) {
     clearPlanets();
     viewMode = 'mindmap';
+    applyViewZoom('mindmap');
     const nodes = hub.mindMap || [];
-    const hubPlanet = addPlanetAt(hub, [0, 0, 0], { radius: 0.82, sub: 'HABILIDADE · TOQUE PARA RESUMO' });
+    const materia = hub.materia || hub.facts?.[0] || hub.cat || hub.name;
+    const hubPlanet = addPlanetAt(hub, [0, 0, 0], {
+      radius: 1.05,
+      hubBlue: true,
+      centerMateria: materia
+    });
     hubPlanet.isHub = true;
-    const positions = orbitPositions(nodes.length, 3.1);
+    const positions = mindMapPositions(nodes.length);
     const byId = new Map([[hub.id, hubPlanet]]);
+    const hubPos = () => hubPlanet.group.position.clone();
     nodes.forEach((node, i) => {
       const p = addPlanetAt(node, positions[i], {
-        radius: 0.58,
+        radius: 0.56,
         sub: node.mindMap?.length ? 'APROFUNDAR MAPA' : 'TOQUE PARA DETALHES'
       });
       byId.set(node.id, p);
-      linkLine(new THREE.Vector3(0, 0, 0), new THREE.Vector3(...positions[i]));
+      linkLineDynamic(hubPos, () => p.group.position.clone());
     });
-    nodes.forEach((node, i) => {
+    nodes.forEach((node) => {
       const from = byId.get(node.id);
       if (!from || !node.links?.length) return;
       node.links.forEach((linkId) => {
         const to = byId.get(linkId);
         if (!to || to === from) return;
-        linkLine(from.group.position.clone(), to.group.position.clone(), 0x81f1df, 0.42);
+        linkLineDynamic(
+          () => from.group.position.clone(),
+          () => to.group.position.clone(),
+          0x81f1df,
+          0.45
+        );
       });
     });
     notifyNav();
@@ -203,10 +452,32 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate }) {
     buildPlanets(node.children || []);
   }
 
+  function refreshProgressVisuals() {
+    planetMeshes.forEach((p) => {
+      const visualState = progress ? resolveVisualState(p.node, progress) : 'default';
+      const color = p.node.color ?? 0x88aaff;
+      applyPlanetVisual(p.sphere, p.halo, color, visualState);
+      p.visualState = visualState;
+    });
+  }
+
   function navigateInto(node) {
+    materializeNode(node);
     if (node.children?.length) {
       navStack.push(node);
       showNodeChildren(node);
+      return;
+    }
+    if (node.bnccSkill || node.etecMission) {
+      navStack.push(node);
+      buildMindMap({
+        id: `${node.id}-hub`,
+        name: node.code || node.name,
+        emoji: node.emoji,
+        materia: node.materia || node.cat,
+        summary: node.summary,
+        mindMap: buildSkillActivities(node)
+      });
       return;
     }
     if (node.mindMap?.length) {
@@ -359,10 +630,10 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate }) {
     el.addEventListener(
       'wheel',
       (e) => {
-        zoom = Math.max(0.65, Math.min(1.7, zoom + e.deltaY * 0.0008));
-        camera.position.z = 14 / zoom;
+        e.preventDefault();
+        targetZoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, targetZoom - e.deltaY * 0.0015));
       },
-      { passive: true }
+      { passive: false }
     );
     window.addEventListener('resize', () => {
       camera.aspect = innerWidth / innerHeight;
@@ -383,12 +654,29 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate }) {
       root.children[CORE_INDEX].rotation.y = t * 0.15;
       root.children[1].scale.setScalar(1 + Math.sin(t * 1.5) * 0.035);
       root.children[2].rotation.y = t * 0.22;
+      const map = viewMode === 'mindmap';
+      const floatY = map ? 0.2 : 0.06;
+      const drift = map ? 0.22 : 0;
       planetMeshes.forEach((p, i) => {
-        const base = p.baseY ?? p.group.position.y;
-        p.group.position.y = base + Math.sin(t * 1.2 + i) * 0.06;
-        p.group.rotation.y = t * 0.12 + i * 0.3;
+        const ph = p.phase ?? i;
+        const bx = p.baseX ?? p.group.position.x;
+        const by = p.baseY ?? p.group.position.y;
+        const bz = p.baseZ ?? p.group.position.z;
+        p.group.position.y = by + Math.sin(t * 1.35 + ph) * floatY;
+        if (drift) {
+          p.group.position.x = bx + Math.sin(t * 0.75 + ph) * drift;
+          p.group.position.z = bz + Math.cos(t * 0.65 + ph) * drift;
+        }
+        if (p.isHub) {
+          const pulse = 1 + Math.sin(t * 1.8) * 0.04;
+          p.sphere.scale.setScalar(pulse);
+        }
+        p.group.rotation.y = t * (map ? 0.08 : 0.12) + i * 0.3;
         p.halo.rotation.z = t * 0.18 + i;
       });
+      if (map && mindMapLinkRefs.length) updateDynamicLinks();
+      zoom += (targetZoom - zoom) * 0.12;
+      applyCameraDistance();
     }
     renderer.render(scene, camera);
   }
@@ -399,6 +687,32 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate }) {
     },
     goUp() {
       navigateUp();
+    },
+    refreshProgress() {
+      refreshProgressVisuals();
+    },
+    rebuildCurrentLayer() {
+      if (viewMode === 'mindmap') {
+        refreshProgressVisuals();
+        return;
+      }
+      const node = currentNode();
+      const children = node.children || [];
+      const skillLayer =
+        children.length > 0 && children.every((n) => n.bnccSkill || n.etecMission);
+      if (skillLayer) {
+        refreshProgressVisuals();
+        return;
+      }
+      if (planetMeshes.length && children.length && children.length <= 20) {
+        buildPlanets(children);
+        return;
+      }
+      if (rootLayersOpen && node.id === treeRoot.id && treeRoot.children?.length <= 12) {
+        buildPlanets(treeRoot.children);
+        return;
+      }
+      refreshProgressVisuals();
     }
   };
 }

@@ -1,20 +1,12 @@
-const STORAGE_KEY = 'universo-celulas-discovered';
+import { loadProgress, saveProgress } from './progress.js';
 
 export function loadDiscovered(validIds) {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return new Set();
-    const ids = JSON.parse(raw);
-    if (!Array.isArray(ids)) return new Set();
-    const valid = new Set(validIds);
-    return new Set(ids.filter((id) => valid.has(id)));
-  } catch {
-    return new Set();
-  }
+  return loadProgress(validIds).ids;
 }
 
 export function saveDiscovered(discovered) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify([...discovered]));
-  } catch {}
+  const { codes } = loadProgress();
+  saveProgress(discovered, codes);
 }
+
+export { loadProgress, saveProgress, registerEtecMissions } from './progress.js';

@@ -1,39 +1,90 @@
-import { bnccRoot, collectDiscoverableIds, breadcrumbLabel } from './bncc-tree.js';
-import { loadDiscovered, saveDiscovered } from './storage.js';
+import { buildBnccTreeFromCsv, collectDiscoverableIds, breadcrumbLabel } from './bncc-tree.js';
+import { loadProgress, saveProgress, registerEtecMissions } from './storage.js';
 import { createPanel } from './panel.js';
 import { createUniverse } from './universe.js';
+import { parseMissaoEtecCsv } from './missao-etec.js';
 
-const validIds = collectDiscoverableIds();
-const discovered = loadDiscovered(validIds);
-const persist = () => saveDiscovered(discovered);
+const statusEl = document.getElementById('status');
+let panel;
+let universe;
 
-const panel = createPanel({
-  discovered,
-  topicCount: validIds.length,
-  onPersist: persist
-});
+let progressDebounce;
 
-const crumb = document.getElementById('crumb');
-const backBtn = document.getElementById('navBack');
+async function boot() {
+  try {
+    statusEl.textContent = 'Carregando planilhas…';
+    const [csv, etecCsv] = await Promise.all([
+      fetch('./data/bncc.csv').then((r) => {
+        if (!r.ok) throw new Error(`BNCC CSV ${r.status}`);
+        return r.text();
+      }),
+      fetch('./data/missao-etec.csv').then((r) => {
+        if (!r.ok) throw new Error(`Missão ETEC CSV ${r.status}`);
+        return r.text();
+      })
+    ]);
 
-function updateCrumb({ stack, rootLayersOpen, viewMode }) {
-  if (!rootLayersOpen && stack.length === 1 && stack[0].id === bnccRoot.id) {
-    crumb.textContent = 'Toque no núcleo · BNCC';
-    backBtn.classList.add('hidden');
-    return;
+    statusEl.textContent = 'Montando Missão ETEC…';
+    const etecData = parseMissaoEtecCsv(etecCsv);
+    registerEtecMissions(etecData.allMissions);
+
+    statusEl.textContent = 'Montando árvore BNCC…';
+    await new Promise((r) => requestAnimationFrame(r));
+    const bnccRoot = buildBnccTreeFromCsv(csv, etecData.branch);
+    const validIds = collectDiscoverableIds(bnccRoot);
+    const progress = loadProgress(validIds);
+
+    const onProgressChange = () => {
+      clearTimeout(progressDebounce);
+      progressDebounce = setTimeout(() => universe?.rebuildCurrentLayer(), 100);
+    };
+
+    panel = createPanel({
+      progress,
+      onPersist: () => saveProgress(progress.ids, progress.codes),
+      onProgressChange
+    });
+
+    const crumb = document.getElementById('crumb');
+    const backBtn = document.getElementById('navBack');
+
+    function updateCrumb({ stack, rootLayersOpen, viewMode }) {
+      if (!rootLayersOpen && stack.length === 1 && stack[0].id === bnccRoot.id) {
+        crumb.textContent = 'Toque no núcleo · BNCC';
+        backBtn.classList.add('hidden');
+        return;
+      }
+      crumb.textContent = breadcrumbLabel(stack, viewMode);
+      backBtn.classList.remove('hidden');
+    }
+
+    universe = createUniverse(document.getElementById('space'), bnccRoot, {
+      onLeafSelect: (node) => panel.openTopic(node),
+      onNavigate: updateCrumb,
+      progress
+    });
+
+    backBtn.onclick = () => universe.goUp();
+    const skipped = bnccRoot.meta?.skippedCodes ?? 0;
+    const saved = progress.ids.size + progress.codes.size;
+    statusEl.textContent = `Pronto · ${etecData.allMissions.length} missões ETEC · progresso salvo: ${saved} registro(s) no navegador.`;
+  } catch (e) {
+    statusEl.textContent = 'Erro ao carregar CSVs — use servidor HTTP local.';
+    console.error(e);
   }
-  crumb.textContent = breadcrumbLabel(stack, viewMode);
-  backBtn.classList.remove('hidden');
 }
 
-const universe = createUniverse(document.getElementById('space'), bnccRoot, {
-  onLeafSelect: (node) => panel.openTopic(node),
-  onNavigate: updateCrumb
+const beginBtn = document.getElementById('begin');
+beginBtn.disabled = true;
+boot().finally(() => {
+  if (universe) beginBtn.disabled = false;
 });
 
-backBtn.onclick = () => universe.goUp();
-
-document.getElementById('begin').onclick = () => {
+beginBtn.onclick = () => {
+  if (!universe) {
+    statusEl.textContent = 'Ainda carregando… aguarde ou use http://127.0.0.1:8765';
+    return;
+  }
   document.getElementById('start').style.display = 'none';
   universe.start();
 };
