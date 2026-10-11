@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Universo das Células — Missão ETEC</title>
+<link rel="stylesheet" href="css/app.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<div id="space"></div>
+<div id="top"><h1>🧬 Universo das Células</h1><div id="subtitle">Uma aventura científica para a Missão ETEC</div></div>
+<div id="hud"><span class="pill" id="crumb">Toque no núcleo · BNCC</span><span class="pill" id="score">⭐ Descobertas: 0</span><button type="button" class="pill pill-btn hidden" id="navBack">⬅ Voltar camada</button></div>
+<div id="help">🖱️ Arraste para girar o universo<br>🔍 Role para aproximar ou afastar<br>🧬 Núcleo: camadas BNCC · voltar<br>📅 Bimestre → habilidades → mapa ligado</div>
+<div id="status">Experiência 3D requer conexão com a internet.</div>
+<aside id="panel" class="hidden">
+<button id="close" aria-label="Fechar painel" type="button">×</button>
+<div class="eyebrow" id="category">Descoberta científica</div>
+<h2 id="title">Título</h2>
+<p id="summary"></p>
+<div class="task"><b>🧠 O que descobrir</b><div id="facts"></div></div>
+<div class="task" id="quizTask"><b>🎯 Desafio rápido</b><div id="question"></div><div id="answers"></div><div id="quizResult"></div></div>
+<div><b>🏷️ Códigos BNCC para revisar</b><div id="codes"></div><p style="font-size:.75rem;color:#a9bddf">Os códigos são sugestões de estudo, não previsão oficial da ETEC. Confirme a descrição na BNCC.</p></div>
+<button class="primary" id="learned" type="button">✨ Marcar como descoberto</button>
+</aside>
+<div id="start"><div class="startbox"><div class="emoji">🌌</div><h1>Entre no Universo das Células</h1><p>Explore um pequeno universo 3D, visite mundos de Ciências e complete desafios para sua preparação para a ETEC.</p><button id="begin" type="button">COMEÇAR A EXPLORAR 🚀</button><p style="font-size:.8rem">Funciona no navegador. Precisa de internet para carregar o motor gráfico 3D.</p></div></div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
