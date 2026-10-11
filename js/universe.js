@@ -468,16 +468,31 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate, progr
       showNodeChildren(node);
       return;
     }
+    if (node.mediaKind) {
+      onLeafSelect(node);
+      return;
+    }
     if (node.bnccSkill || node.etecMission) {
       navStack.push(node);
+      const activities = buildSkillActivities(node);
       buildMindMap({
         id: `${node.id}-hub`,
         name: node.code || node.name,
         emoji: node.emoji,
         materia: node.materia || node.cat,
         summary: node.summary,
-        mindMap: buildSkillActivities(node)
+        code: node.code,
+        questao: node.questao,
+        prova: node.prova,
+        tema: node.tema,
+        etecMission: node.etecMission,
+        hasProvaQuiz: node.hasProvaQuiz,
+        mindMap: activities
       });
+      if (node.etecMission && node.hasProvaQuiz) {
+        const quiz = activities.find((a) => a.mediaKind === 'quiz');
+        if (quiz) requestAnimationFrame(() => onLeafSelect(quiz));
+      }
       return;
     }
     if (node.mindMap?.length) {
@@ -529,7 +544,7 @@ export function createUniverse(host, treeRoot, { onLeafSelect, onNavigate, progr
     }
     const hit = planetMeshes.find((p) => p.sphere === obj);
     if (!hit) return;
-    if (viewMode === 'mindmap' && hit.isHub) {
+    if (viewMode === 'mindmap') {
       onLeafSelect(hit.node);
       return;
     }

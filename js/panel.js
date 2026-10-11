@@ -6,7 +6,7 @@ import {
 } from './progress.js';
 import { saveProgress } from './storage.js';
 
-export function createPanel({ progress, onPersist, onProgressChange }) {
+export function createPanel({ progress, onPersist, onProgressChange, openQuiz, openProvaQuiz }) {
   let active = null;
   const panel = document.getElementById('panel');
   const learnedBtn = document.getElementById('learned');
@@ -80,7 +80,21 @@ export function createPanel({ progress, onPersist, onProgressChange }) {
   }
 
   function openTopic(t) {
+    if (t.mediaKind === 'quiz' && openQuiz) {
+      openQuiz(t);
+      return;
+    }
+
     active = t;
+    const provaQuizBtn = document.getElementById('openProvaQuiz');
+    if (provaQuizBtn) {
+      const showProva =
+        t.etecMission && t.hasProvaQuiz && t.questao && t.prova && openProvaQuiz;
+      provaQuizBtn.classList.toggle('hidden', !showProva);
+      provaQuizBtn.onclick = showProva
+        ? () => openProvaQuiz(t)
+        : null;
+    }
     panel.classList.remove('hidden');
     document.getElementById('category').textContent = t.cat || 'BNCC';
     const titleExtra = t.questao ? ` · Q${t.questao}` : t.skillCode ? ` · ${t.skillCode}` : '';
@@ -95,7 +109,7 @@ export function createPanel({ progress, onPersist, onProgressChange }) {
     document.getElementById('facts').innerHTML = facts.length
       ? `<ul>${facts.map((f) => `<li>${f}</li>`).join('')}</ul>`
       : '<p style="margin:0;color:#a9bddf">Sem tópicos listados nesta camada.</p>';
-    const hasQuiz = (t.question && t.answers?.length) || t.mediaKind === 'quiz';
+    const hasQuiz = t.question && t.answers?.length;
     quizTask.classList.toggle('hidden', !hasQuiz);
     document.getElementById('question').textContent = hasQuiz ? t.question : '';
     document.getElementById('quizResult').textContent = '';
@@ -110,14 +124,11 @@ export function createPanel({ progress, onPersist, onProgressChange }) {
         b.onclick = () => {
           const ok = i === t.correct;
           document.getElementById('quizResult').textContent = ok
-            ? '🎉 Correto! Progresso salvo na BNCC e na Missão ETEC.'
-            : 'Quase! Releia o tema e as dicas.';
+            ? '🎉 Correto!'
+            : 'Quase! Releia o tema.';
           if (ok) {
             markNodeComplete(progress, t);
-            if (t.skillCode) {
-              const parent = progress;
-              parent.codes.add(normalizeCode(t.skillCode));
-            }
+            if (t.skillCode) progress.codes.add(normalizeCode(t.skillCode));
             persistAll();
             updateScore();
             learnedBtn.textContent = learnedLabel(t);

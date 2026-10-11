@@ -1,0 +1,1060 @@
+{
+  "prova 2026 1 sem": {
+    "prova": "prova 2026 1 sem",
+    "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+    "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+    "questions": {
+      "1": {
+        "bnccCodes": [
+          "EF69LP03"
+        ],
+        "tema": "Interpretação de texto: domesticação de animais e evolução humana",
+        "reading": "A convivência com os animais mudou os seres humanos. Talvez o exemplo mais popular seja o consumo de leite: antes da domesticação animal, as pessoas naturalmente desenvolviam intolerância a lactose à medida que cresciam e não precisavam mais do leite materno. Quando os seres humanos começaram a criar gado, começaram a beber mais leite, havendo uma adaptação do sistema digestivo para o consumo do leite durante toda a vida. A domesticação é parte da conexão humana com os animais, que percorre toda a história e conecta grandes saltos evolutivos, como o desenvolvimento de ferramentas e até da linguagem.\n\nFonte: https://tinyurl.com/wm2m58xm · Acesso em: 10.04.2025. Adaptado.",
+        "enunciado": "Segundo o texto, a domesticação de animais",
+        "stem": "Segundo o texto, a domesticação de animais",
+        "answers": [
+          "ocorreu recentemente, no período medieval, e foi possível devido à invenção da linguagem e das ferramentas de pedra.",
+          "causou danos à saúde humana, que não estava preparada para o consumo de leite na vida adulta, diminuindo a expectativa média de vida do homem contemporâneo.",
+          "aumentou os níveis naturais de intolerância a lactose no homem pré-histórico devido às diferenças entre o leite materno e o leite de vaca.",
+          "contribuiu para o desenvolvimento de aspectos culturais que favoreceram a evolução humana, como a criação de ferramentas e da linguagem.",
+          "provocou saltos evolutivos que atrasaram o desenvolvimento da linguagem e da tecnologia."
+        ],
+        "correct": 3,
+        "gabarito": "D",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true,
+        "bnccCode": "EF69LP03"
+      },
+      "2": {
+        "bnccCodes": [
+          "EF07MA09"
+        ],
+        "tema": "Razão e proporcionalidade: cães-guia e pessoas com deficiência visual",
+        "reading": "que percorre toda a história e conecta grandes saltos evolutivos, como o desenvolvimento de ferramentas e até da linguagem. <",
+        "enunciado": "Segundo o texto, a domesticação de animais",
+        "stem": "Segundo o texto, a domesticação de animais",
+        "answers": [
+          "ocorreu recentemente, no período medieval, e foi possível devido à invenção da linguagem e das ferramentas de pedra.",
+          "causou danos à saúde humana, que não estava preparada para o consumo de leite na vida adulta, diminuindo a expectativa média de vida do homem contemporâneo.",
+          "aumentou os níveis naturais de intolerância a lactose no homem pré-histórico devido às diferenças entre o leite materno e o leite de vaca.",
+          "contribuiu para o desenvolvimento de aspectos culturais que favoreceram a evolução humana, como a criação de ferramentas e da linguagem.",
+          "provocou saltos evolutivos que atrasaram o desenvolvimento da linguagem e da tecnologia."
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "3": {
+        "bnccCodes": [
+          "EF07MA37"
+        ],
+        "tema": "Gráfico de setores e proporções",
+        "reading": "ctativa média de vida do homem contemporâneo. (C) aumentou os níveis naturais de intolerância a lactose no homem pré-histórico devido às diferenças entre o leite materno e o leite de vaca. (D) contribuiu para o desenvolvimento de aspectos culturais que favoreceram a evolução humana, como a criação de ferramentas e da linguagem. (E) provocou saltos evolutivos que atrasaram o desenvolvimento da linguagem e da tecnologia.",
+        "enunciado": "(A) 1 para cada 29 000 (B) 1 para cada 30500 (C) 1 para cada 31400 (D) 1 para cada 31 800 (E) 1 para cada 32 700",
+        "stem": "(A) 1 para cada 29 000 (B) 1 para cada 30500 (C) 1 para cada 31400 (D) 1 para cada 31 800 (E) 1 para cada 32 700",
+        "answers": [
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E) Outras raças Outras raças Outras raças Outras raças Outras raças",
+          "Outras raças Outras raças Outras raças Outras raças Outras raças"
+        ],
+        "correct": 3,
+        "gabarito": "D",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "4": {
+        "bnccCodes": [
+          "EF69LP47"
+        ],
+        "tema": "Interpretação de texto literário: Clarice Lispector",
+        "reading": "",
+        "enunciado": "ara cada 30500 (C) 1 para cada 31400 (D) 1 para cada 31 800 (E) 1 para cada 32 700",
+        "stem": "ara cada 30500 (C) 1 para cada 31400 (D) 1 para cada 31 800 (E) 1 para cada 32 700",
+        "answers": [
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E) Outras raças Outras raças Outras raças Outras raças Outras raças",
+          "Outras raças Outras raças Outras raças Outras raças Outras raças"
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "5": {
+        "bnccCodes": [
+          "EF07CI07"
+        ],
+        "tema": "Benefícios da convivência com animais para o bem-estar",
+        "reading": "e às vontades dos outros. (B) sentir-se acolhido ao ser inferiorizado diante de seus superiores hierárquicos, evidenciando a aceitação de sua posição social. (C) manter uma atitude de inquietação constante diante da existência, levando-o a revigorar a sociedade em que se encontra. (D) regozijar-se diante da possibilidade de tornar um outro indivíduo tenso pela simples companhia que pode oferecer. (E) viver com plenitude sua existência, sem se deixar levar por infrutíferas angústias durante esse processo.",
+        "enunciado": "A partir da leitura do texto, é correto concluir que",
+        "stem": "A partir da leitura do texto, é correto concluir que",
+        "answers": [
+          "os egípcios observavam nos felinos algumas características que consideravam admiráveis, como graça, fertilidade, cuidado e rapidez, e as projetavam em seus deuses.",
+          "os felinos eram importantes para a sociedade egípcia apenas por suas funções práticas, como o controle de pragas em casas e em celeiros.",
+          "a admiração dos egípcios se restringia aos felinos menores, que viviam entre os humanos e eram considerados símbolos de realeza.",
+          "a observação atenta levou os egípcios a considerar os felinos uma espécie contraditória cujas características de personalidade deveriam ser evitadas.",
+          "as divindades egípcias representavam ideais nobres e estavam relacionadas à crença de que os seres humanos são superiores aos animais."
+        ],
+        "correct": 0,
+        "gabarito": "A",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "6": {
+        "bnccCodes": [
+          "EF09HI28"
+        ],
+        "tema": "Guerra Fria e corrida espacial",
+        "reading": "957, não retornou. Entre 1948 e 1961, União Soviética (URSS) e Estados Unidos (EUA) enviaram 65 animais ao espaço, sendo 48 cães, 15 macacos e 2 coelhos. Vinte e sete deles morreram em acidentes devido a circunstâncias imprevistas durante a empreitada. O envio de animais não humanos ao espaço começou a cessar com o lançamento de pessoas. Yuri Gagarin, que ficou uma hora e meia no espaço em 1961, brincou uma vez dizendo que foi, ao mesmo tempo, a “primeira pessoa e o último cachorro no espaço”. <",
+        "enunciado": "De acordo com o texto, a convivência entre crianças e animais acarreta",
+        "stem": "De acordo com o texto, a convivência entre crianças e animais acarreta",
+        "answers": [
+          "aumento da produção de endorfina no organismo, tornando dispensável qualquer tipo de acompanhamento emocional.",
+          "dependência emocional tão intensa que a criança rejeita completamente o convívio social, isolando-se do mundo.",
+          "redução da necessidade de tomar medicamentos, de fazer exercícios físicos e de se preocupar com alimentação saudável.",
+          "desfavorecimento do desenvolvimento da capacidade de organização, uma vez que ajuda a criança a criar uma rotina.",
+          "melhora habilidades de convivência social e de comunicação, contribuindo para o desenvolvimento afetivo e psicológico."
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "7": {
+        "bnccCodes": [
+          "EF69LP03"
+        ],
+        "tema": "Interpretação de texto sobre povos indígenas e animais",
+        "reading": "vimento afetivo e psicológico.",
+        "enunciado": "O processo histórico referido no texto é característico do período conhecido como",
+        "stem": "O processo histórico referido no texto é característico do período conhecido como",
+        "answers": [
+          "Primeira Revolução Industrial.",
+          "Segunda Guerra Mundial.",
+          "Reconstrução Europeia.",
+          "Grandes Navegações.",
+          "Guerra Fria."
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "8": {
+        "bnccCodes": [
+          "EF09LP08"
+        ],
+        "tema": "Relações de sentido expressas por preposições",
+        "reading": "s pelos indígenas se caracterizam por serem carnívoros e por conseguirem manter a temperatura corporal constante, independentemente da temperatura do ambiente.",
+        "enunciado": "Embora o personagem faça um grande sucesso desde sua criação, há um erro científico na tirinha, uma vez que",
+        "stem": "Embora o personagem faça um grande sucesso desde sua criação, há um erro científico na tirinha, uma vez que",
+        "answers": [
+          "filhotes de répteis carnívoros, como o Tiranossauro Rex, não se desenvolviam em ovos, mas no útero das fêmeas, como ocorre com os mamíferos.",
+          "os dinossauros, embora convivessem harmonicamente com os seres humanos, não eram capazes de manter relações de afeto com as pessoas.",
+          "o Tiranossauro Rex, assim como as aves, tinha o hábito instintivo de enterrar inteiramente seus ovos para protegê-los dos predadores.",
+          "os dinossauros foram extintos há milhões de anos, muito antes da aparição dos primeiros hominídeos na Terra.",
+          "as evidências paleontológicas indicam que as fêmeas de Tiranossauros Rex não se afastavam de seus ovos, já que eram animais domésticos."
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "9": {
+        "bnccCodes": [
+          "EF09LP08"
+        ],
+        "tema": "Sentido de expressões verbais no contexto",
+        "reading": "incipalmente na Amazônia brasileira, embora seja responsável por 50% das exportações mundiais de carne bovina. (E) o estado do Amazonas, dentre as unidades da Federação localizadas na Amazônia Legal, concentra pouco mais de 40% do rebanho nacional de bovinos, tornando esse estado, em termos percentuais, o campeão brasileiro em áreas florestais desmatadas.",
+        "enunciado": "A partir do texto, é correto afirmar que",
+        "stem": "A partir do texto, é correto afirmar que",
+        "answers": [
+          "uma revolução cultural ocorrida nos países da Europa, que levou os governos a adotar políticas educacionais rígidas e universalizantes, com o objetivo de preparar a juventude para as transformações que ocorreriam no século XX.",
+          "uma política de entretenimento, também conhecida como “política de pão e circo”, voltada ao aprimoramento do repertório cultural dos colonos, para que superassem os males que os afligiam.",
+          "uma política de expansão territorial, econômica, política e cultural de países europeus sobre outros continentes, também conhecida como neocolonialismo.",
+          "uma forma de governo absolutista, em que todo o poder se concentrava nas mãos do rei e que desconsiderava as necessidades materiais imediatas de seus súditos.",
+          "uma forma de governo democrática, que pressupunha a divisão do poder em Executivo, Legislativo e Judiciário e dava grande ênfase ao desenvolvimento científico e cultural da população europeia."
+        ],
+        "correct": 3,
+        "gabarito": "D",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "10": {
+        "bnccCodes": [
+          "EF07LP12"
+        ],
+        "tema": "Referenciação pronominal: identificação do referente",
+        "reading": "ndo\tcom\to\t  \nseu\tbando”,\texplica\tJosiane.\t\nNos territórios indígenas, não há pets do jeito como vemos nas cidades. \nOs\tanimais\tvivem\tsoltos\tna\tfloresta.\tE\tmesmo\tos\tque\trecebem\tcuidados\t\nde crianças ou adultos nas aldeias podem voltar para a mata. A relação \ncom eles é de cuidado e de respeito, equilibrando a subsistência e o \nbem-viver.\tEm\tvez\tde\tcachorros\te\tgatinhos,\tsão\tararas,\tpapagaios,\t\njabutis, macacos e capivaras os companheiros de brincadeiras e afagos \ndos pequenos.\nPara\t esses\t bichinhos,\t dá-se\t o\t nome\t de\t xerimbabos,\t que\t em\t tupi\t\nsignifica\t“coisa\tmuito\tquerida”.\tA\tpalavra\taparece\tem\tvários\tregistros\t\nhistóricos quando há a descrição da relação entre os povos originários \ne os animais da mata, sendo o termo cunhado pelos próprios indígenas.  \nNas aldeias, faz parte da cultura cuidar de tudo o que tem vida  \nna\tfloresta.\n<https://tinyurl.com/3er3jb53>\tAcesso\tem:\t10.04.2025.\tAdaptado.\nSegundo\to\ttexto,\té\tcorreto\tafirmar\tque\n(A)\t o\t vocábulo\t “xerimbabos”,\t cujo\t sentido\t equivale\t a\t “entes\t muito\t amados”,\t é\t usado\t para\t se\t referir\t \nàs crianças que desenvolvem afeto pelos animais silvestres.\n(B)\t o\t movimento\t repentino\t de\t ataque\t do\t bicho-preguiça\t traumatizou\t as\t irmãs\t Yzuahy\t e\t Ywàna,\t \ndesacostumadas ao convívio com a natureza local.\n(C)\t a\t relação\tafetiva\tdesenvolvida\tentre\tos\tanimais\tsilvestres\te\tos\tdomésticos\tacarretou\tdesequilíbrio\t\necológico para a comunidade indígena.\n(D)\t a\t relação\t com\t a\t fauna\t e\t a\t flora\t é\t essencial\t para\t uma\t vivência\t harmônica\t na\t sociedade\t em\t \nque as irmãs residem.\n(E)\t o\t cuidado\tcom\ta\tfauna\tlocal\trealizado\tpelos\tindígenas\tintroduziu\to\tconceito\tde\t“animais\tdomésticos”\t \nà comunidade.\nQuestão 08\n\n7       \nVESTIBULINHO 1o semestre | 2026     •       \nAs expressões em negrito no texto denotam, respectivamente,\n(A) tempo, origem, causa e lugar. \n(B)\t condição,\tdestino,\tinstrumento\te\tcausa.\n(C)\t consequência,\torigem,\tcompanhia\te\ttempo.\n(D) condição, destino, ferramenta e causa.\n(E) tempo, lugar, companhia e lugar.\nNa\tpassagem\t“quando\tcresceu,\tficou\tlivre\te\tacabou\tindo\tcom\to\tseu\tbando”,\ta\texpressão\t“acabou\tindo”\taponta\n(A) uma ação inacabada que é realizada recorrentemente. \n(B)\t uma\tação\tinacabada\tque\tse\tprolonga\tinfinitamente.\n(C)\t uma\tação\tfinalizada\tque\té\tenfatizada\tao\tterminar.\t\n(D) o início de uma ação que se realiza rapidamente. \n(E) o desenvolvimento de uma ação que não se concretiza.\nO",
+        "enunciado": "O pronome eles, sublinhado no quarto parágrafo do texto, refere-se aos termos",
+        "stem": "O pronome eles, sublinhado no quarto parágrafo do texto, refere-se aos termos",
+        "answers": [
+          "o vocábulo “xerimbabos”, cujo sentido equivale a “entes muito amados”, é usado para se referir às crianças que desenvolvem afeto pelos animais silvestres.",
+          "o movimento repentino de ataque do bicho-preguiça traumatizou as irmãs Yzuahy e Ywàna, desacostumadas ao convívio com a natureza local.",
+          "a relação afetiva desenvolvida entre os animais silvestres e os domésticos acarretou desequilíbrio ecológico para a comunidade indígena.",
+          "a relação com a fauna e a flora é essencial para uma vivência harmônica na sociedade em que as irmãs residem.",
+          "o cuidado com a fauna local realizado pelos indígenas introduziu o conceito de “animais domésticos” à comunidade."
+        ],
+        "correct": 3,
+        "gabarito": "D",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "11": {
+        "bnccCodes": [
+          "EF07CI07"
+        ],
+        "tema": "Classificação dos animais e cadeia alimentar",
+        "reading": "ar medicamentos, de fazer exercícios físicos e de se preocupar com alimentação saudável. (D) desfavorecimento do desenvolvimento da capacidade de organização, uma vez que ajuda a criança a criar uma rotina. (E) melhora habilidades de convivência social e de comunicação, contribuindo para o desenvolvimento afetivo e psicológico.",
+        "enunciado": "O processo histórico referido no texto é característico do período conhecido como",
+        "stem": "O processo histórico referido no texto é característico do período conhecido como",
+        "answers": [
+          "Primeira Revolução Industrial.",
+          "Segunda Guerra Mundial.",
+          "Reconstrução Europeia.",
+          "Grandes Navegações.",
+          "Guerra Fria."
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "12": {
+        "bnccCodes": [
+          "EF08MA04"
+        ],
+        "tema": "Regra de três e cálculo de capacidade de atendimento",
+        "reading": "sagrados, sendo a onça um símbolo cultural e espiritual, vista como a guardiã da floresta.",
+        "enunciado": "Sobre os animais citados, é correto afirmar que",
+        "stem": "Sobre os animais citados, é correto afirmar que",
+        "answers": [
+          "as aves se caracterizam por serem animais carnívoros, dotados de bico forte e curvo, com garras afiadas, com pelos e escamas no corpo e nas patas.",
+          "a relação dos indígenas com os xerimbabos tem o objetivo de garantir a criação desses animais em cativeiro para o abate diário e a alimentação da comunidade.",
+          "os xerimbabos são muito queridos pelos indígenas e, apesar de estarem em cativeiro, são cuidados com muito respeito e soltos na floresta quando em perigo de extinção.",
+          "a onça é considerada a guardiã da floresta, ocupa o topo da cadeia alimentar por se alimentar de herbívoros maiores e de predadores menores, mantendo dessa forma o equilíbrio ambiental.",
+          "os animais considerados sagrados pelos indígenas se caracterizam por serem carnívoros e por conseguirem manter a temperatura corporal constante, independentemente da temperatura do ambiente."
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "13": {
+        "bnccCodes": [
+          "EF06CI06"
+        ],
+        "tema": "Reprodução dos dinossauros e desenvolvimento em ovos",
+        "reading": "",
+        "enunciado": "que",
+        "stem": "que",
+        "answers": [
+          "o vocábulo “xerimbabos”, cujo sentido equivale a “entes muito amados”, é usado para se referir às crianças que desenvolvem afeto pelos animais silvestres.",
+          "o movimento repentino de ataque do bicho-preguiça traumatizou as irmãs Yzuahy e Ywàna, desacostumadas ao convívio com a natureza local.",
+          "a relação afetiva desenvolvida entre os animais silvestres e os domésticos acarretou desequilíbrio ecológico para a comunidade indígena.",
+          "a relação com a fauna e a flora é essencial para uma vivência harmônica na sociedade em que as irmãs residem.",
+          "o cuidado com a fauna local realizado pelos indígenas introduziu o conceito de “animais domésticos” à comunidade."
+        ],
+        "correct": 0,
+        "gabarito": "A",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "14": {
+        "bnccCodes": [
+          "EF09CI14"
+        ],
+        "tema": "Deriva continental e evidências paleontológicas — interdisciplinar",
+        "reading": "s sessões por semana, tendo cada uma das sessões duração de 30 minutos.",
+        "enunciado": "Embora o personagem faça um grande sucesso desde sua criação, há um erro científico na tirinha, uma vez que",
+        "stem": "Embora o personagem faça um grande sucesso desde sua criação, há um erro científico na tirinha, uma vez que",
+        "answers": [
+          "filhotes de répteis carnívoros, como o Tiranossauro Rex, não se desenvolviam em ovos, mas no útero das fêmeas, como ocorre com os mamíferos.",
+          "os dinossauros, embora convivessem harmonicamente com os seres humanos, não eram capazes de manter relações de afeto com as pessoas.",
+          "o Tiranossauro Rex, assim como as aves, tinha o hábito instintivo de enterrar inteiramente seus ovos para protegê-los dos predadores.",
+          "os dinossauros foram extintos há milhões de anos, muito antes da aparição dos primeiros hominídeos na Terra.",
+          "as evidências paleontológicas indicam que as fêmeas de Tiranossauros Rex não se afastavam de seus ovos, já que eram animais domésticos."
+        ],
+        "correct": 3,
+        "gabarito": "D",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "15": {
+        "bnccCodes": [
+          "EF09CI01"
+        ],
+        "tema": "Respiração celular e classificação de substâncias envolvidas",
+        "reading": "s unidos no passado, constituindo um continente único, o supercontinente Pangeia, rodeado pelo oceano Pantalassa.",
+        "enunciado": "Um dos argumentos de Wegener que fundamenta sua teoria é de base paleontológica e se respalda na existência de",
+        "stem": "Um dos argumentos de Wegener que fundamenta sua teoria é de base paleontológica e se respalda na existência de",
+        "answers": [
+          "água doce presente em todos os continentes.",
+          "formações geomorfológicas similares em continentes diferentes.",
+          "fósseis idênticos encontrados em continentes hoje afastados.",
+          "destroços de navios localizados ao longo das costas oceânicas.",
+          "justaposição entre as linhas de costa da Ásia e da América do Sul."
+        ],
+        "correct": 0,
+        "gabarito": "A",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "16": {
+        "bnccCodes": [
+          "EF09CI02"
+        ],
+        "tema": "Respiração aeróbica e formação de dióxido de carbono",
+        "reading": "s unidos no passado, constituindo um continente único, o supercontinente Pangeia, rodeado pelo oceano Pantalassa.",
+        "enunciado": "Um dos argumentos de Wegener que fundamenta sua teoria é de base paleontológica e se respalda na existência de",
+        "stem": "Um dos argumentos de Wegener que fundamenta sua teoria é de base paleontológica e se respalda na existência de",
+        "answers": [
+          "água doce presente em todos os continentes.",
+          "formações geomorfológicas similares em continentes diferentes.",
+          "fósseis idênticos encontrados em continentes hoje afastados.",
+          "destroços de navios localizados ao longo das costas oceânicas.",
+          "justaposição entre as linhas de costa da Ásia e da América do Sul."
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "17": {
+        "bnccCodes": [
+          "EF08CI06"
+        ],
+        "tema": "Magnetorrecepção e orientação de aves migratórias",
+        "reading": "",
+        "enunciado": "ta sua teoria é de base paleontológica e se respalda na existência de",
+        "stem": "ta sua teoria é de base paleontológica e se respalda na existência de",
+        "answers": [
+          "água doce presente em todos os continentes.",
+          "formações geomorfológicas similares em continentes diferentes.",
+          "fósseis idênticos encontrados em continentes hoje afastados.",
+          "destroços de navios localizados ao longo das costas oceânicas.",
+          "justaposição entre as linhas de costa da Ásia e da América do Sul."
+        ],
+        "correct": 0,
+        "gabarito": "A",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "18": {
+        "bnccCodes": [
+          "EF09CI04"
+        ],
+        "tema": "Notação científica e conversão de unidades de campo magnético",
+        "reading": "",
+        "enunciado": "rmar corretamente que essa capacidade está relacionada ao princípio físico da",
+        "stem": "rmar corretamente que essa capacidade está relacionada ao princípio físico da",
+        "answers": [
+          "radiação solar, pois a areia úmida auxilia na sustentação do animal.",
+          "gravidade, pois os desertos apresentam uma diminuição da gravidade local.",
+          "condutividade térmica, pois os cascos são constituídos de uma resina isolante.",
+          "resistividade elétrica, pois a areia apresenta sílica, um bom condutor de eletricidade.",
+          "pressão superficial, pois os cascos amplos distribuem o peso do animal e da sua carga."
+        ],
+        "correct": 1,
+        "gabarito": "B",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "19": {
+        "bnccCodes": [
+          "EF07MA01",
+          "EF08GE09"
+        ],
+        "tema": "Orientação espacial e interpretação de mapas",
+        "reading": "",
+        "enunciado": "Com base no mapa, se, por ventura, um beija-flor-preto migrar de uma área de Mata Atlântica, localizada no estado de Sergipe, para uma área de Cerrado, localizada no estado de Goiás, ele voará no sentido",
+        "stem": "Com base no mapa, se, por ventura, um beija-flor-preto migrar de uma área de Mata Atlântica, localizada no estado de Sergipe, para uma área de Cerrado, localizada no estado de Goiás, ele voará no sentido",
+        "answers": [
+          "Noroeste.",
+          "Nordeste.",
+          "Sudoeste.",
+          "Sudeste.",
+          "Leste. km"
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "20": {
+        "bnccCodes": [
+          "EF07GE09"
+        ],
+        "tema": "Direções cardeais e deslocamento entre regiões brasileiras",
+        "reading": "es. (C) fósseis idênticos encontrados em continentes hoje afastados. (D) destroços de navios localizados ao longo das costas oceânicas. (E) justaposição entre as linhas de costa da Ásia e da América do Sul.",
+        "enunciado": "O oxigênio e a glicose são classificados, respectivamente, como",
+        "stem": "O oxigênio e a glicose são classificados, respectivamente, como",
+        "answers": [
+          "substância composta e substância simples.",
+          "substância simples e substância composta.",
+          "substância composta e substância composta.",
+          "substância composta e mistura.",
+          "substância simples e mistura."
+        ],
+        "correct": 0,
+        "gabarito": "A",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "21": {
+        "bnccCodes": [
+          "EF69LP47"
+        ],
+        "tema": "Sinonímia e sentido de palavras em uma canção",
+        "reading": "erfície, tem densidade média de fluxo magnético estimada de 50 µT — cerca de um centésimo da força de um ímã de geladeira. <",
+        "enunciado": "Sabendo que 1 µT = 1 × 10 – 6 T, assinale a alternativa que apresenta corretamente, em notação científica, a densidade média de fluxo magnético de um imã de geladeira, em T.",
+        "stem": "Sabendo que 1 µT = 1 × 10 – 6 T, assinale a alternativa que apresenta corretamente, em notação científica, a densidade média de fluxo magnético de um imã de geladeira, em T.",
+        "answers": [
+          "Noroeste.",
+          "Nordeste.",
+          "Sudoeste.",
+          "Sudeste.",
+          "Leste. km"
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "22": {
+        "bnccCodes": [
+          "EF69LP44"
+        ],
+        "tema": "Interpretação da canção Passaredo",
+        "reading": "erfície, tem densidade média de fluxo magnético estimada de 50 µT — cerca de um centésimo da força de um ímã de geladeira. <",
+        "enunciado": "Sabendo que 1 µT = 1 × 10 – 6 T, assinale a alternativa que apresenta corretamente, em notação científica, a densidade média de fluxo magnético de um imã de geladeira, em T.",
+        "stem": "Sabendo que 1 µT = 1 × 10 – 6 T, assinale a alternativa que apresenta corretamente, em notação científica, a densidade média de fluxo magnético de um imã de geladeira, em T.",
+        "answers": [
+          "Noroeste.",
+          "Nordeste.",
+          "Sudoeste.",
+          "Sudeste.",
+          "Leste. km"
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "23": {
+        "bnccCodes": [
+          "EF69LP48"
+        ],
+        "tema": "Efeitos de sentido e justificativa do título",
+        "reading": "sição social. (C) manter uma atitude de inquietação constante diante da existência, levando-o a revigorar a sociedade em que se encontra. (D) regozijar-se diante da possibilidade de tornar um outro indivíduo tenso pela simples companhia que pode oferecer. (E) viver com plenitude sua existência, sem se deixar levar por infrutíferas angústias durante esse processo.",
+        "enunciado": "A partir da leitura do texto, é correto concluir que",
+        "stem": "A partir da leitura do texto, é correto concluir que",
+        "answers": [
+          "os egípcios observavam nos felinos algumas características que consideravam admiráveis, como graça, fertilidade, cuidado e rapidez, e as projetavam em seus deuses.",
+          "os felinos eram importantes para a sociedade egípcia apenas por suas funções práticas, como o controle de pragas em casas e em celeiros.",
+          "a admiração dos egípcios se restringia aos felinos menores, que viviam entre os humanos e eram considerados símbolos de realeza.",
+          "a observação atenta levou os egípcios a considerar os felinos uma espécie contraditória cujas características de personalidade deveriam ser evitadas.",
+          "as divindades egípcias representavam ideais nobres e estavam relacionadas à crença de que os seres humanos são superiores aos animais."
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "24": {
+        "bnccCodes": [
+          "EF69LP48"
+        ],
+        "tema": "Verbos no imperativo, vocativos e intenção comunicativa",
+        "reading": "",
+        "enunciado": "imo para o termo destacado em negrito na canção.",
+        "stem": "imo para o termo destacado em negrito na canção.",
+        "answers": [
+          "porque",
+          "ainda que",
+          "desde que",
+          "contanto que",
+          "à medida que A letra da canção nos remete à"
+        ],
+        "correct": 3,
+        "gabarito": "D",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "25": {
+        "bnccCodes": [
+          "EF06CI06"
+        ],
+        "tema": "Visão das aves, cones e percepção das cores",
+        "reading": "ticos encontrados em continentes hoje afastados. (D) destroços de navios localizados ao longo das costas oceânicas. (E) justaposição entre as linhas de costa da Ásia e da América do Sul.",
+        "enunciado": "O oxigênio e a glicose são classificados, respectivamente, como",
+        "stem": "O oxigênio e a glicose são classificados, respectivamente, como",
+        "answers": [
+          "substância composta e substância simples.",
+          "substância simples e substância composta.",
+          "substância composta e substância composta.",
+          "substância composta e mistura.",
+          "substância simples e mistura."
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "26": {
+        "bnccCodes": [
+          "EF09CI01",
+          "EF08GE15"
+        ],
+        "tema": "Água, moléculas e composição química",
+        "reading": "ntém ferro, que é responsável pelo transporte de oxigênio e é representado por: .",
+        "enunciado": "Sobre esse elemento, é correto afirmar que apresenta",
+        "stem": "Sobre esse elemento, é correto afirmar que apresenta",
+        "answers": [
+          "número de massa 56.",
+          "número atômico 30.",
+          "30 prótons.",
+          "56 elétrons.",
+          "26 nêutrons. Fe5626 Baseando-se no texto, é correto afirmar que"
+        ],
+        "correct": 0,
+        "gabarito": "A",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "27": {
+        "bnccCodes": [
+          "EF07CI08"
+        ],
+        "tema": "Espécies invasoras e equilíbrio dos ecossistemas",
+        "reading": "s do meio ambiente. (B) dimensão dos versos, ressaltando a velocidade do desmatamento. (C) sonoridade das vogais fechadas que remetem à melancolia da canção. (D) repetição inicial de termos, expressando a posição dos animais nas árvores. (E) enumeração de substantivos, indicando a diversidade de aves existentes. 1 Ei, quero-quero Oi, tico-tico Anum, pardal, chapim Xô, cotovia Xô, ave-fria 6 Xô, pescador-martim Some, rolinha Anda, andorinha Te esconde, bem-te-vi Voa, bicudo 11 Voa, sanhaço Vai, juriti Bico calado Muito cuidado Que o homem vem aí 16 O homem vem aí O homem vem aí. <",
+        "enunciado": "",
+        "stem": "",
+        "answers": [
+          "expressar as emoções vivenciadas pelo eu lírico diante do canto dos pássaros.",
+          "manter um diálogo necessário com a natureza para a preservação da humanidade.",
+          "persuadir os interlocutores a realizarem ações para protegê-los de uma iminente ameaça.",
+          "evidenciar o domínio de estruturas poéticas que valorizam a sonoridade dos versos.",
+          "ensinar os leitores sobre a diversidade de espécies existentes na flora brasileira."
+        ],
+        "correct": 1,
+        "gabarito": "B",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "28": {
+        "bnccCodes": [
+          "EF09MA19"
+        ],
+        "tema": "Volume de cilindro: aplicação da fórmula",
+        "reading": "polinizar cerca de 75% das culturas alimentares do mundo.",
+        "enunciado": "Baseando-se no texto, é correto afirmar que",
+        "stem": "Baseando-se no texto, é correto afirmar que",
+        "answers": [
+          "a pulverização de agrotóxicos e o uso de inseticidas alteram o material genético das abelhas, deixando-as lentas, sem asas, com maior capacidade de polinização e de produção de mel.",
+          "o desmatamento beneficia a formação de enxames e a construção de novos ninhos de abelhas devido ao aumento da disponibilidade de alimento, como flores silvestres.",
+          "o aumento do número de flores encurta o tempo de vida das abelhas, causando a redução da reprodução das plantas e prejudicando a biodiversidade terrestre.",
+          "a ocorrência de doenças prejudiciais à visão e à memória de navegação das abelhas aumenta a capacidade de elas retornarem às colmeias.",
+          "o uso de agrotóxicos na agricultura para o controle de pragas acarreta a diminuição da população de abelhas, interferindo na polinização natural."
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "29": {
+        "bnccCodes": [
+          "EF09CI01"
+        ],
+        "tema": "Escala de pH, acidez e indicadores ácido-base",
+        "reading": "do ecossistema local. (B) podem ser utilizados como fonte de proteína animal e possuem adaptações que permitem a movimentação na água, apesar de serem mamíferos terrestres. (C) dilaceram a carne das presas, pois são mamíferos carnívoros com dentes caninos pontiagudos e muito resistentes devido à presença de ferro. (D) pertencem ao grupo dos mamíferos ruminantes, pois possuem a capacidade de engolir e de mastigar o mesmo alimento mais de uma vez. (E) atuam no equilíbrio ecológico da fauna e da flora das matas e das florestas independentemente das regiões onde foram introduzidos.",
+        "enunciado": "Podemos afirmar corretamente que, em presença de suco gástrico, o indicador apresentará cor",
+        "stem": "Podemos afirmar corretamente que, em presença de suco gástrico, o indicador apresentará cor",
+        "answers": [
+          "azul, pois se trata de uma solução de caráter básico.",
+          "azul, pois se trata de uma solução de caráter ácido.",
+          "verde, pois se trata de uma solução neutra.",
+          "vermelha, pois se trata de uma solução de caráter ácido.",
+          "vermelha, pois se trata de uma solução de caráter básico."
+        ],
+        "correct": 0,
+        "gabarito": "A",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "30": {
+        "bnccCodes": [
+          "EF07MA02"
+        ],
+        "tema": "Velocidade média e comparação entre distâncias e tempos",
+        "reading": "nas em seu domínio. Isso se deve ao fato de o Cerrado abrigar diversas aves migratórias. O beija-flor-preto é uma ave característica da Mata Atlântica, mas que migra para o interior do país, visitando as flores do Cerrado. <",
+        "enunciado": "Com base no mapa, se, por ventura, um beija-flor-preto migrar de uma área de Mata Atlântica, localizada no estado de Sergipe, para uma área de Cerrado, localizada no estado de Goiás, ele voará no sentido",
+        "stem": "Com base no mapa, se, por ventura, um beija-flor-preto migrar de uma área de Mata Atlântica, localizada no estado de Sergipe, para uma área de Cerrado, localizada no estado de Goiás, ele voará no sentido",
+        "answers": [
+          "Noroeste.",
+          "Nordeste.",
+          "Sudoeste.",
+          "Sudeste.",
+          "Leste. km"
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "31": {
+        "bnccCodes": [
+          "EF08CI01"
+        ],
+        "tema": "Ciclo da água e fenômenos físicos relacionados à evaporação",
+        "reading": "Adaptado. De acordo com o texto e considerando que existem atualmente, no Brasil, cerca de 6,5 milhões de pessoas com deficiência visual, assinale a alternativa que apresenta a melhor aproximação da razão entre o número de cães-guia em atividade e o número de pessoas com deficiência visual em nosso país, respectivamente.",
+        "enunciado": "(A) 1 para cada 29 000 (B) 1 para cada 30500 (C) 1 para cada 31400 (D) 1 para cada 31 800 (E) 1 para cada 32 700",
+        "stem": "(A) 1 para cada 29 000 (B) 1 para cada 30500 (C) 1 para cada 31400 (D) 1 para cada 31 800 (E) 1 para cada 32 700",
+        "answers": [
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E) Outras raças Outras raças Outras raças Outras raças Outras raças",
+          "Outras raças Outras raças Outras raças Outras raças Outras raças"
+        ],
+        "correct": 0,
+        "gabarito": "A",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "32": {
+        "bnccCodes": [
+          "EF07CI07"
+        ],
+        "tema": "Nutrientes, vitaminas, minerais e saúde humana",
+        "reading": "chas vulcânicas. (D) ao vasto aumento da umidade relativa nos desertos. (E) à evaporação e à condensação provocadas pela energia solar.",
+        "enunciado": "Sobre o peixe citado no texto, assinale a alternativa correta.",
+        "stem": "Sobre o peixe citado no texto, assinale a alternativa correta.",
+        "answers": [
+          "Ao ser consumido, a presença de ferro nesses peixes, favorece a formação dos glóbulos vermelhos no sangue humano.",
+          "A pele desses peixes, ao ser utilizada em queimaduras de 2° e 3° graus, impede a cicatrização da área lesada no corpo humano.",
+          "Ao ser consumido, a vitamina D presente nesses peixes é importante para prevenir doenças em crianças, tais como o escorbuto e o sarampo.",
+          "Ao ser consumido, a quantidade baixa de proteínas nesses peixes favorece o ganho de massa magra e fortalece o tecido muscular, principalmente em praticantes de atividades físicas.",
+          "Ao ser consumido, a presença de minerais como cálcio e zinco, nesses peixes, ajuda a prevenir o aparecimento de tromboses, a febre amarela e a prisão de ventre nas pessoas idosas."
+        ],
+        "correct": 1,
+        "gabarito": "B",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "33": {
+        "bnccCodes": [
+          "EF69LP03"
+        ],
+        "tema": "Interpretação de texto informativo",
+        "reading": "iva correta.\n(A) Ao ser consumido, a presença de ferro nesses peixes, favorece a formação dos glóbulos vermelhos no \nsangue humano.\n(B)\t A \tpele\tdesses\tpeixes,\tao\tser\tutilizada\tem\tqueimaduras\tde\t2°\te\t3°\tgraus,\timpede\ta\tcicatrização\tda\tárea\t\nlesada no corpo humano. \n(C)\t Ao\tser\tconsumido,\ta\tvitamina\tD\tpresente\tnesses\tpeixes\té\timportante\tpara\tprevenir\tdoenças\tem\tcrianças,\t\ntais como o escorbuto e o sarampo.\n(D) Ao ser consumido, a quantidade baixa de proteínas nesses peixes favorece o ganho de massa magra e \nfortalece o tecido muscular, principalmente em praticantes de atividades físicas.\n(E) Ao ser consumido, a presença de minerais como cálcio e zinco, nesses peixes, ajuda a prevenir o \naparecimento de tromboses, a febre amarela e a prisão de ventre nas pessoas idosas.\nCom\tbase\tno\ttexto,\té",
+        "enunciado": "Com base no texto, é correto afirmar que a tilápia é",
+        "stem": "Com base no texto, é correto afirmar que a tilápia é",
+        "answers": [
+          "Ao ser consumido, a presença de ferro nesses peixes, favorece a formação dos glóbulos vermelhos no sangue humano.",
+          "A pele desses peixes, ao ser utilizada em queimaduras de 2° e 3° graus, impede a cicatrização da área lesada no corpo humano.",
+          "Ao ser consumido, a vitamina D presente nesses peixes é importante para prevenir doenças em crianças, tais como o escorbuto e o sarampo.",
+          "Ao ser consumido, a quantidade baixa de proteínas nesses peixes favorece o ganho de massa magra e fortalece o tecido muscular, principalmente em praticantes de atividades físicas.",
+          "Ao ser consumido, a presença de minerais como cálcio e zinco, nesses peixes, ajuda a prevenir o aparecimento de tromboses, a febre amarela e a prisão de ventre nas pessoas idosas."
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "34": {
+        "bnccCodes": [
+          "EF69LP03"
+        ],
+        "tema": "Identificação de informações e inferências em texto",
+        "reading": "el pelo transporte de oxigênio e é representado por: .",
+        "enunciado": "Sobre esse elemento, é correto afirmar que apresenta",
+        "stem": "Sobre esse elemento, é correto afirmar que apresenta",
+        "answers": [
+          "número de massa 56.",
+          "número atômico 30.",
+          "30 prótons.",
+          "56 elétrons.",
+          "26 nêutrons. Fe5626 Baseando-se no texto, é correto afirmar que"
+        ],
+        "correct": 0,
+        "gabarito": "A",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "35": {
+        "bnccCodes": [
+          "EF09CI03"
+        ],
+        "tema": "Número atômico, número de massa, prótons e nêutrons",
+        "reading": "e até da linguagem. <",
+        "enunciado": "Segundo o texto, a domesticação de animais",
+        "stem": "Segundo o texto, a domesticação de animais",
+        "answers": [
+          "ocorreu recentemente, no período medieval, e foi possível devido à invenção da linguagem e das ferramentas de pedra.",
+          "causou danos à saúde humana, que não estava preparada para o consumo de leite na vida adulta, diminuindo a expectativa média de vida do homem contemporâneo.",
+          "aumentou os níveis naturais de intolerância a lactose no homem pré-histórico devido às diferenças entre o leite materno e o leite de vaca.",
+          "contribuiu para o desenvolvimento de aspectos culturais que favoreceram a evolução humana, como a criação de ferramentas e da linguagem.",
+          "provocou saltos evolutivos que atrasaram o desenvolvimento da linguagem e da tecnologia."
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "36": {
+        "bnccCodes": [
+          "EF09CI01"
+        ],
+        "tema": "Fórmula molecular e estrutura de feromônios",
+        "reading": "imento de tromboses, a febre amarela e a prisão de ventre nas pessoas idosas.",
+        "enunciado": "Com base no texto, é correto afirmar que a tilápia é",
+        "stem": "Com base no texto, é correto afirmar que a tilápia é",
+        "answers": [
+          "nativa da região Nordeste do Brasil, especificamente do Ceará.",
+          "rica em vitaminas e minerais, podendo ser utilizada na medicina.",
+          "cultivada em tanques de água salgada no interior da região Sudeste.",
+          "o principal produto de exportação do Brasil desde a década de 1990.",
+          "produzida e comercializada pelo Departamento de Obras Contra as Secas."
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "37": {
+        "bnccCodes": [
+          "EF09CI13"
+        ],
+        "tema": "Uso de feromônios no controle sustentável de pragas",
+        "reading": "revenir doenças em crianças, tais como o escorbuto e o sarampo. (D) Ao ser consumido, a quantidade baixa de proteínas nesses peixes favorece o ganho de massa magra e fortalece o tecido muscular, principalmente em praticantes de atividades físicas. (E) Ao ser consumido, a presença de minerais como cálcio e zinco, nesses peixes, ajuda a prevenir o aparecimento de tromboses, a febre amarela e a prisão de ventre nas pessoas idosas.",
+        "enunciado": "Com base no texto, é correto afirmar que a tilápia é",
+        "stem": "Com base no texto, é correto afirmar que a tilápia é",
+        "answers": [
+          "nativa da região Nordeste do Brasil, especificamente do Ceará.",
+          "rica em vitaminas e minerais, podendo ser utilizada na medicina.",
+          "cultivada em tanques de água salgada no interior da região Sudeste.",
+          "o principal produto de exportação do Brasil desde a década de 1990.",
+          "produzida e comercializada pelo Departamento de Obras Contra as Secas."
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "38": {
+        "bnccCodes": [
+          "EF07CI08"
+        ],
+        "tema": "Polinização, abelhas e biodiversidade",
+        "reading": "áveis por regularem o ciclo menstrual entre elas.",
+        "enunciado": "Baseando-se no texto, é correto afirmar que",
+        "stem": "Baseando-se no texto, é correto afirmar que",
+        "answers": [
+          "a pulverização de agrotóxicos e o uso de inseticidas alteram o material genético das abelhas, deixando-as lentas, sem asas, com maior capacidade de polinização e de produção de mel.",
+          "o desmatamento beneficia a formação de enxames e a construção de novos ninhos de abelhas devido ao aumento da disponibilidade de alimento, como flores silvestres.",
+          "o aumento do número de flores encurta o tempo de vida das abelhas, causando a redução da reprodução das plantas e prejudicando a biodiversidade terrestre.",
+          "a ocorrência de doenças prejudiciais à visão e à memória de navegação das abelhas aumenta a capacidade de elas retornarem às colmeias.",
+          "o uso de agrotóxicos na agricultura para o controle de pragas acarreta a diminuição da população de abelhas, interferindo na polinização natural."
+        ],
+        "correct": 1,
+        "gabarito": "B",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "39": {
+        "bnccCodes": [
+          "EF07CI03"
+        ],
+        "tema": "Isolamento térmico e transferência de calor",
+        "reading": "o de as abelhas serem os principais seres vivos responsáveis por polinizar cerca de 75% das culturas alimentares do mundo.",
+        "enunciado": "Baseando-se no texto, é correto afirmar que",
+        "stem": "Baseando-se no texto, é correto afirmar que",
+        "answers": [
+          "a pulverização de agrotóxicos e o uso de inseticidas alteram o material genético das abelhas, deixando-as lentas, sem asas, com maior capacidade de polinização e de produção de mel.",
+          "o desmatamento beneficia a formação de enxames e a construção de novos ninhos de abelhas devido ao aumento da disponibilidade de alimento, como flores silvestres.",
+          "o aumento do número de flores encurta o tempo de vida das abelhas, causando a redução da reprodução das plantas e prejudicando a biodiversidade terrestre.",
+          "a ocorrência de doenças prejudiciais à visão e à memória de navegação das abelhas aumenta a capacidade de elas retornarem às colmeias.",
+          "o uso de agrotóxicos na agricultura para o controle de pragas acarreta a diminuição da população de abelhas, interferindo na polinização natural."
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "40": {
+        "bnccCodes": [
+          "EF07CI02"
+        ],
+        "tema": "Pressão superficial e distribuição do peso",
+        "reading": "isolamento térmico por meio da observação dos animais locais.",
+        "enunciado": "Assinale a alternativa que justifica corretamente o equilíbrio térmico estabelecido.",
+        "stem": "Assinale a alternativa que justifica corretamente o equilíbrio térmico estabelecido.",
+        "answers": [
+          "A alta capacidade de absorção de moléculas de água pela pele é a responsável por evitar a sudorese.",
+          "A perda de calor da pele do corpo para o ambiente é a responsável por manter o corpo aquecido.",
+          "A pele auxilia no equilíbrio térmico devido à convecção, mantendo o corpo aquecido.",
+          "A reflexão total da radiação solar recebida pelo corpo aumenta a temperatura corporal.",
+          "A presença de proteínas vivas isolantes na pele é a responsável por facilitar a transferência térmica."
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "41": {
+        "bnccCodes": [
+          "EF06HI18"
+        ],
+        "tema": "Mapas medievais e visão de mundo na Idade Média",
+        "reading": "Durante a Idade Média, os mapas eram frequentemente adornados com representações de \nmonstros\tmarinhos.\tEssas\tcriaturas\trefletiam\ttanto\to\tmedo\tquanto\ta\tfascinação\tpelo\tdesconhecido.\t  \nAlém disso, eram utilizadas para ilustrar os perigos do mar e das terras inexploradas. \nCom\to\tavanço\tda\tciência\te\tda\texploração\tmarítima,\tas\trepresentações\tde\tmonstros\tmarinhos\tnos\t\nmapas\tcomeçaram\ta\tdesaparecer.\tEstudos\tmais\tprecisos\te\trelatos\tconfiáveis\tsubstituíram\tas\tlendas\t\ne\tas\tsuperstições.\tAlém\tdisso,\ta\tbiologia\tmarinha\tajudou\ta\tdesmistificar\tmuitas\tdessas\tcriaturas.\t  \nMapas\tposteriores\tfocaram-se\tmais\tem\tprecisão\te\tdetalhes\tgeográficos.\t\n<https://tinyurl.com/2jaebfwu>\tAcesso\tem:\t10.04.2025.\tAdaptado.",
+        "enunciado": "Com base no texto, assinale a alternativa correta.",
+        "stem": "Com base no texto, assinale a alternativa correta.",
+        "answers": [
+          "os mapas da Idade Média retratavam as características monstruosas dos animais marinhos, demonstrando uma visão científica precisa em relação a esses seres e alertando para os perigos que representavam.",
+          "a visão medieval sobre os animais marinhos era determinada por medo e superstição, e foi substituída pelo olhar científico na medida em que avançaram as expedições marítimas e os conhecimentos sobre biologia marinha.",
+          "a fascinação pelo desconhecido evitou que os europeus da Idade Média se dedicassem ao estudo sistemático dos animais marinhos e impediu que essas criaturas fossem estudadas até a contemporaneidade.",
+          "a cartografia medieval se baseou em relatos confiáveis para produzir mapas precisos em que as representações de monstros marinhos desmistificavam essas criaturas.",
+          "o objetivo da cartografia é alertar os navegantes para os perigos do desconhecido, evitando os deslocamentos por mar, habitat ocupado por monstros marinhos."
+        ],
+        "correct": 1,
+        "gabarito": "B",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "42": {
+        "bnccCodes": [],
+        "tema": "",
+        "reading": "",
+        "enunciado": "Com base nas informações apresentadas, determine a taxa de lotação dessa área em UA/ha.",
+        "stem": "Com base nas informações apresentadas, determine a taxa de lotação dessa área em UA/ha.",
+        "answers": [
+          "o Brasil ainda precisa importar grande parte da carne consumida pelo mercado interno, mesmo possuindo o maior rebanho bovino de corte do mundo, pois o alto valor do dólar inibe as exportações desse produto.",
+          "a expansão da fronteira agrícola para o cultivo de feijão, de trigo e de arroz, cereais utilizados como fonte de alimentação para o gado de corte, é a maior responsável pelo desmatamento verificado na Amazônia brasileira.",
+          "a criação de gado é uma das principais causas do desmatamento no Brasil, principalmente na Amazônia, contribuindo para as mudanças climáticas, pois as florestas são importantes no sequestro de carbono.",
+          "o Brasil ainda não conseguiu estancar o processo de desmatamento causado pela criação de gado de corte, principalmente na Amazônia brasileira, embora seja responsável por 50% das exportações mundiais de carne bovina.",
+          "o estado do Amazonas, dentre as unidades da Federação localizadas na Amazônia Legal, concentra pouco mais de 40% do rebanho nacional de bovinos, tornando esse estado, em termos percentuais, o campeão brasileiro em áreas florestais desmatadas."
+        ],
+        "correct": 1,
+        "gabarito": "B",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "43": {
+        "bnccCodes": [
+          "EF08MA06"
+        ],
+        "tema": "Taxa de lotação, unidades animais e cálculo proporcional",
+        "reading": "e fenômeno é devido ao fato de que o Sol está diretamente acima do equador.",
+        "enunciado": "Assinale a alternativa que identifica corretamente o conceito científico que evidencia o erro da fake news.",
+        "stem": "Assinale a alternativa que identifica corretamente o conceito científico que evidencia o erro da fake news.",
+        "answers": [
+          "O equinócio provoca ondas de calor intenso em países localizados ao Sul da linha do Equador, sendo necessário se abrigar para evitar queimaduras solares.",
+          "O fato de o Sol estar sobre o Equador faz com que a radiação solar se concentre em todo o Brasil, justificando a previsão de 40 °C às 16 h.",
+          "O equinócio está relacionado à inclinação do eixo da Terra e se caracteriza pelo fato de o dia e a noite terem o mesmo período com duração de 12 horas, portanto, não é responsável direto por ondas de calor.",
+          "As temperaturas de 40 °C são previsíveis durante o equinócio porque ocorre aumento da atividade solar sobre o hemisfério sul nessa época.",
+          "A recomendação de ficar em casa durante o equinócio é cientificamente válida, pois a energia solar atinge níveis perigosos entre 11 h e 17 h nesses dias."
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "44": {
+        "bnccCodes": [
+          "EF09GE13"
+        ],
+        "tema": "Pecuária, desmatamento na Amazônia e mudanças climáticas",
+        "reading": "ínio. Isso se deve ao fato de o Cerrado abrigar diversas aves migratórias. O beija-flor-preto é uma ave característica da Mata Atlântica, mas que migra para o interior do país, visitando as flores do Cerrado. <",
+        "enunciado": "Com base no mapa, se, por ventura, um beija-flor-preto migrar de uma área de Mata Atlântica, localizada no estado de Sergipe, para uma área de Cerrado, localizada no estado de Goiás, ele voará no sentido",
+        "stem": "Com base no mapa, se, por ventura, um beija-flor-preto migrar de uma área de Mata Atlântica, localizada no estado de Sergipe, para uma área de Cerrado, localizada no estado de Goiás, ele voará no sentido",
+        "answers": [
+          "Noroeste.",
+          "Nordeste.",
+          "Sudoeste.",
+          "Sudeste.",
+          "Leste. km"
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "45": {
+        "bnccCodes": [
+          "EF08HI23"
+        ],
+        "tema": "Imperialismo europeu, neocolonialismo e origem dos zoológicos modernos",
+        "reading": "lotação dessa área em UA/ha.",
+        "enunciado": "(A) 2,5 (B) 5,0 (C) 7,5 (D) 12,5 (E) 18,0",
+        "stem": "(A) 2,5 (B) 5,0 (C) 7,5 (D) 12,5 (E) 18,0",
+        "answers": [
+          "o Brasil ainda precisa importar grande parte da carne consumida pelo mercado interno, mesmo possuindo o maior rebanho bovino de corte do mundo, pois o alto valor do dólar inibe as exportações desse produto.",
+          "a expansão da fronteira agrícola para o cultivo de feijão, de trigo e de arroz, cereais utilizados como fonte de alimentação para o gado de corte, é a maior responsável pelo desmatamento verificado na Amazônia brasileira.",
+          "a criação de gado é uma das principais causas do desmatamento no Brasil, principalmente na Amazônia, contribuindo para as mudanças climáticas, pois as florestas são importantes no sequestro de carbono.",
+          "o Brasil ainda não conseguiu estancar o processo de desmatamento causado pela criação de gado de corte, principalmente na Amazônia brasileira, embora seja responsável por 50% das exportações mundiais de carne bovina.",
+          "o estado do Amazonas, dentre as unidades da Federação localizadas na Amazônia Legal, concentra pouco mais de 40% do rebanho nacional de bovinos, tornando esse estado, em termos percentuais, o campeão brasileiro em áreas florestais desmatadas."
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "46": {
+        "bnccCodes": [
+          "EF07CI09"
+        ],
+        "tema": "Doenças parasitárias: teníase e cisticercos",
+        "reading": ", muitos zoológicos foram criados com intenções conservacionistas, especialmente no que tange à preservação de espécies nativas, ressaltando o papel que essas instituições têm desempenhado em termos de conservação e educação. <",
+        "enunciado": "O processo histórico referido no texto, que explica o contexto de surgimento dos zoológicos modernos, é caracterizado por",
+        "stem": "O processo histórico referido no texto, que explica o contexto de surgimento dos zoológicos modernos, é caracterizado por",
+        "answers": [
+          "uma revolução cultural ocorrida nos países da Europa, que levou os governos a adotar políticas educacionais rígidas e universalizantes, com o objetivo de preparar a juventude para as transformações que ocorreriam no século XX.",
+          "uma política de entretenimento, também conhecida como “política de pão e circo”, voltada ao aprimoramento do repertório cultural dos colonos, para que superassem os males que os afligiam.",
+          "uma política de expansão territorial, econômica, política e cultural de países europeus sobre outros continentes, também conhecida como neocolonialismo.",
+          "uma forma de governo absolutista, em que todo o poder se concentrava nas mãos do rei e que desconsiderava as necessidades materiais imediatas de seus súditos.",
+          "uma forma de governo democrática, que pressupunha a divisão do poder em Executivo, Legislativo e Judiciário e dava grande ênfase ao desenvolvimento científico e cultural da população europeia."
+        ],
+        "correct": 3,
+        "gabarito": "D",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "47": {
+        "bnccCodes": [
+          "EF09CI13"
+        ],
+        "tema": "Conservação da fauna e recuperação de áreas degradadas",
+        "reading": "es no sequestro de carbono. (D) o Brasil ainda não conseguiu estancar o processo de desmatamento causado pela criação de gado de corte, principalmente na Amazônia brasileira, embora seja responsável por 50% das exportações mundiais de carne bovina. (E) o estado do Amazonas, dentre as unidades da Federação localizadas na Amazônia Legal, concentra pouco mais de 40% do rebanho nacional de bovinos, tornando esse estado, em termos percentuais, o campeão brasileiro em áreas florestais desmatadas.",
+        "enunciado": "A partir do texto, é correto afirmar que",
+        "stem": "A partir do texto, é correto afirmar que",
+        "answers": [
+          "uma revolução cultural ocorrida nos países da Europa, que levou os governos a adotar políticas educacionais rígidas e universalizantes, com o objetivo de preparar a juventude para as transformações que ocorreriam no século XX.",
+          "uma política de entretenimento, também conhecida como “política de pão e circo”, voltada ao aprimoramento do repertório cultural dos colonos, para que superassem os males que os afligiam.",
+          "uma política de expansão territorial, econômica, política e cultural de países europeus sobre outros continentes, também conhecida como neocolonialismo.",
+          "uma forma de governo absolutista, em que todo o poder se concentrava nas mãos do rei e que desconsiderava as necessidades materiais imediatas de seus súditos.",
+          "uma forma de governo democrática, que pressupunha a divisão do poder em Executivo, Legislativo e Judiciário e dava grande ênfase ao desenvolvimento científico e cultural da população europeia."
+        ],
+        "correct": 3,
+        "gabarito": "D",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "48": {
+        "bnccCodes": [
+          "EF07CI08"
+        ],
+        "tema": "Preservação das tartarugas marinhas e participação comunitária",
+        "reading": "sil, principalmente na Amazônia, contribuindo para as mudanças climáticas, pois as florestas são importantes no sequestro de carbono. (D) o Brasil ainda não conseguiu estancar o processo de desmatamento causado pela criação de gado de corte, principalmente na Amazônia brasileira, embora seja responsável por 50% das exportações mundiais de carne bovina. (E) o estado do Amazonas, dentre as unidades da Federação localizadas na Amazônia Legal, concentra pouco mais de 40% do rebanho nacional de bovinos, tornando esse estado, em termos percentuais, o campeão brasileiro em áreas florestais desmatadas.",
+        "enunciado": "A partir do texto, é correto afirmar que",
+        "stem": "A partir do texto, é correto afirmar que",
+        "answers": [
+          "uma revolução cultural ocorrida nos países da Europa, que levou os governos a adotar políticas educacionais rígidas e universalizantes, com o objetivo de preparar a juventude para as transformações que ocorreriam no século XX.",
+          "uma política de entretenimento, também conhecida como “política de pão e circo”, voltada ao aprimoramento do repertório cultural dos colonos, para que superassem os males que os afligiam.",
+          "uma política de expansão territorial, econômica, política e cultural de países europeus sobre outros continentes, também conhecida como neocolonialismo.",
+          "uma forma de governo absolutista, em que todo o poder se concentrava nas mãos do rei e que desconsiderava as necessidades materiais imediatas de seus súditos.",
+          "uma forma de governo democrática, que pressupunha a divisão do poder em Executivo, Legislativo e Judiciário e dava grande ênfase ao desenvolvimento científico e cultural da população europeia."
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "49": {
+        "bnccCodes": [
+          "EF07CI08"
+        ],
+        "tema": "Reprodução das tartarugas marinhas e impactos da iluminação artificial",
+        "reading": "população europeia.",
+        "enunciado": "I II",
+        "stem": "I II",
+        "answers": [
+          "ascaridíase lombriga",
+          "teníase solitária",
+          "mal de Chagas barbeiro",
+          "amebíase ameba",
+          "toxoplasmose salmonella Ao consumir a carne suína ou bovina contaminada com cisticercos – quando não ocorre o cozimento adequado – o ser humano pode adquirir uma doença denominada _______________ causada pelo parasita conhecido como _______________."
+        ],
+        "correct": 4,
+        "gabarito": "E",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      },
+      "50": {
+        "bnccCodes": [
+          "EF07CI08"
+        ],
+        "tema": "Proteção dos animais e responsabilidade socioambiental",
+        "reading": "briga (B) teníase solitária (C) mal de Chagas barbeiro (D) amebíase ameba (E) toxoplasmose salmonella Ao consumir a carne suína ou bovina contaminada com cisticercos – quando não ocorre o cozimento adequado – o ser humano pode adquirir uma doença denominada _______________ causada pelo parasita conhecido como _______________.",
+        "enunciado": "I II Assinale a alternativa que preenche correta e respectivamente os espaços numerados I e II.",
+        "stem": "I II Assinale a alternativa que preenche correta e respectivamente os espaços numerados I e II.",
+        "answers": [
+          "reconectar as pessoas com a atividade circense, que não existe mais no território nacional em função de uma lei federal que impede a utilização de animais em seus espetáculos.",
+          "inspirar novas ações voltadas para incrementar o aumento do número de elefantes para suprir a ausência desses animais nos zoológicos privados brasileiros.",
+          "compreender que os elefantes são dignos de respeito, mesmo sendo responsáveis pelo desmatamento de amplos espaços naturais do Santuário.",
+          "promover a empatia e o respeito pelos elefantes, incentivando as pessoas a se preocuparem com o bem-estar desses e de outros animais.",
+          "motivar as pessoas a se engajarem em ações que permitam a utilização de elefantes em eventos públicos e privados."
+        ],
+        "correct": 2,
+        "gabarito": "C",
+        "cadernoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-CADERNO-VESTIBULINHO-1-SEM2026.pdf",
+        "gabaritoUrl": "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2025/12/A-GABARITO-VESTIBULINHO-1SEM2026.pdf",
+        "curated": true
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { normalizeBnccCode } from './bncc-csv.js';
+import { applyProvaToNode } from './etec-prova-bank.js';
 
 const SECTION_COLORS = {
   'língua portuguesa': 0x6eabff,
@@ -81,16 +82,22 @@ function isBnccSkillCode(code) {
   return /^(EI|EF|EM)/i.test(code);
 }
 
+function applyProvaBank(node) {
+  if (!node.etecMission) return;
+  applyProvaToNode(node);
+}
+
 function missionNode({ prova, section, codeRaw, tema, questao, extras }) {
   const code = isBnccSkillCode(codeRaw) ? normalizeBnccCode(codeRaw) : '';
   const id = `etec-${slug(prova)}-${slug(section)}-q${questao}-${slug(code || codeRaw)}`;
   const color = sectionColor(section);
   const gabarito = (extras.gabarito || '').trim();
-  const hasQuiz = Boolean(gabarito && extras.resposta !== undefined);
 
   return {
     id,
-    name: code ? `${code}` : codeRaw.slice(0, 24),
+    name: code
+      ? `Q${questao} · ${code}`
+      : `Q${questao} · ${codeRaw.slice(0, 24)}`,
     emoji: '🎯',
     color,
     cat: `Missão ETEC · ${section}`,
@@ -115,9 +122,10 @@ function missionNode({ prova, section, codeRaw, tema, questao, extras }) {
     respostaAluno: (extras.resposta || '').trim(),
     etecMission: true,
     bnccSkill: Boolean(code),
-    question: hasQuiz ? `Gabarito ETEC (questão ${questao}): qual alternativa está correta?` : null,
-    answers: hasQuiz ? [gabarito, 'Alternativa B', 'Alternativa C'] : [],
-    correct: hasQuiz ? 0 : undefined
+    question: null,
+    answers: [],
+    correct: undefined,
+    provaRefUrl: 'https://vestibulinho.etec.sp.gov.br/provas-gabaritos/'
   };
 }
 
@@ -164,6 +172,7 @@ export function parseMissaoEtecCsv(csvText) {
     if (!byProva.has(currentProva)) byProva.set(currentProva, new Map());
     const bySection = byProva.get(currentProva);
     if (!bySection.has(currentSection)) bySection.set(currentSection, []);
+    applyProvaBank(node);
     bySection.get(currentSection).push(node);
   });
 

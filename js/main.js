@@ -1,8 +1,12 @@
 import { buildBnccTreeFromCsv, collectDiscoverableIds, breadcrumbLabel } from './bncc-tree.js';
 import { loadProgress, saveProgress, registerEtecMissions } from './storage.js';
 import { createPanel } from './panel.js';
+import { createQuizModal } from './quiz-modal.js';
+import { markNodeComplete, normalizeCode } from './progress.js';
 import { createUniverse } from './universe.js';
 import { parseMissaoEtecCsv } from './missao-etec.js';
+import { setEtecProvaBank, applyProvaToNode } from './etec-prova-bank.js';
+import { buildSkillActivities } from './skill-activities.js';
 
 const statusEl = document.getElementById('status');
 let panel;
@@ -13,7 +17,7 @@ let progressDebounce;
 async function boot() {
   try {
     statusEl.textContent = 'Carregando planilhas…';
-    const [csv, etecCsv] = await Promise.all([
+    const [csv, etecCsv, provaBank, provaCurated] = await Promise.all([
       fetch('./data/bncc.csv').then((r) => {
         if (!r.ok) throw new Error(`BNCC CSV ${r.status}`);
         return r.text();
@@ -21,9 +25,16 @@ async function boot() {
       fetch('./data/missao-etec.csv').then((r) => {
         if (!r.ok) throw new Error(`Missão ETEC CSV ${r.status}`);
         return r.text();
-      })
+      }),
+      fetch('./data/etec-provas.json')
+        .then((r) => (r.ok ? r.json() : {}))
+        .catch(() => ({})),
+      fetch('./data/etec-provas-curated.json')
+        .then((r) => (r.ok ? r.json() : {}))
+        .catch(() => ({}))
     ]);
 
+    setEtecProvaBank(provaBank, provaCurated);
     statusEl.textContent = 'Montando Missão ETEC…';
     const etecData = parseMissaoEtecCsv(etecCsv);
     registerEtecMissions(etecData.allMissions);
@@ -39,10 +50,31 @@ async function boot() {
       progressDebounce = setTimeout(() => universe?.rebuildCurrentLayer(), 100);
     };
 
+    const quizModal = createQuizModal({
+      onAnswered: (node, ok) => {
+        if (!ok) return;
+        markNodeComplete(progress, node);
+        if (node.skillCode) progress.codes.add(normalizeCode(node.skillCode));
+        if (node.parentMissionId) progress.ids.add(node.parentMissionId);
+        saveProgress(progress.ids, progress.codes);
+        onProgressChange();
+        panel?.updateScore();
+      }
+    });
+
+    function openProvaQuizFromMission(mission) {
+      applyProvaToNode(mission);
+      const activities = buildSkillActivities(mission);
+      const quiz = activities.find((a) => a.mediaKind === 'quiz');
+      if (quiz) quizModal.openQuiz(quiz);
+    }
+
     panel = createPanel({
       progress,
       onPersist: () => saveProgress(progress.ids, progress.codes),
-      onProgressChange
+      onProgressChange,
+      openQuiz: (node) => quizModal.openQuiz(node),
+      openProvaQuiz: openProvaQuizFromMission
     });
 
     const crumb = document.getElementById('crumb');
@@ -67,7 +99,8 @@ async function boot() {
     backBtn.onclick = () => universe.goUp();
     const skipped = bnccRoot.meta?.skippedCodes ?? 0;
     const saved = progress.ids.size + progress.codes.size;
-    statusEl.textContent = `Pronto · ${etecData.allMissions.length} missões ETEC · progresso salvo: ${saved} registro(s) no navegador.`;
+    const provaKeys = Object.keys(provaBank || {}).length;
+    statusEl.textContent = `Pronto · ${etecData.allMissions.length} missões ETEC · ${provaKeys} prova(s) no banco · progresso: ${saved}.`;
   } catch (e) {
     statusEl.textContent = 'Erro ao carregar CSVs — use servidor HTTP local.';
     console.error(e);
