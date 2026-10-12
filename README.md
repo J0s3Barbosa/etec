@@ -4,7 +4,7 @@ Opening `index.html` as a file does not start the app. The browser blocks module
 
 ## Click to run
 
-Double-click `run.bat`. It starts the server and opens the browser. Close the server window to stop it.
+Run `bash run.sh`. It starts the server and opens the browser. Press `Ctrl+C` to stop it.
 
 ## Steps
 
